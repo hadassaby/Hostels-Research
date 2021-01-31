@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    html,
+    body {
+        min-height: 100%;
+        display: flex;
+    }
+
+    body,
+    input {
+        padding: 0;
+        margin: 0;
+        outline: none;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 14px;
+        color: black;
+        line-height: 22px;
+    }
+
+    h1,
+    h4 {
+        font-weight: 400;
+    }
+
+    h4 {
+        margin: 22px 0 4px;
+    }
+
+    h5 {
+        text-transform: uppercase;
+        color: #095484;
+    }
+
+    .main-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+    }
+
+    form {
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 2px 5px #ccc;
+        background: #fff;
+    }
+
+    input {
+        width: calc(100% - 10px);
+        padding: 5px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+    }
+
+    textarea {
+        width: calc(100% - 6px);
+        outline: none;
+    }
+
+    input:hover,
+    textarea:hover {
+        outline: none;
+        border: 1px solid #095484;
+    }
+
+    th,
+    td {
+        width: 10%;
+        padding: 15px 0;
+        text-align: center;
+        vertical-align: unset;
+        line-height: 18px;  
+        border-bottom: 1px solid #ccc;
+        border-left: 1px solid gray;
+    }
+
+    .additional-question th,
+    .additional-question td {
+        width: 38%;
+    }
+
+    .course-rate th,
+    .course-rate td {
+        width: 19%;
+    }
+
+    .first-col,
+    .additional-question .first-col,
+    .course-rate .first-col {
+        width: 45%;
+        font-weight: bold;
+        text-align: right;
+        word-break: keep-all;
+        color: darkblue;
+        font-size: 16px;
+    }
+
+    .question,
+    .comments {
+        margin: 15px 0 5px;
+        font-size: 16px; 
+        color: darkblue; 
+        font-weight: bold;
+    }
+
+    .RadioStyle {
+        display: inline-block;
+        align-content: center;
+        border-left: none; 
+        border-bottom: none;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        width: 16px;
+    }
+
+    .RadioQuestion {
+        display: inline;
+        border-left: none; 
+        border-bottom: none;
+        text-align: right;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-right: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        color: darkblue;
+    }
+
+    .question-answer label {
+        display: inline-block;
+        padding: 0 20px 15px 0;
+    }
+
+    .question-answer input {
+        width: auto;
+    }
+
+    .question-answer,
+    table {
+        width: 100%;
+    }
+
+    .btn-block {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    button {
+        width: 150px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #095484;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #0666a3;
+    }
+
+    div.header {
+        padding: 20px;
+        border-radius: 5px;
+        margin: 12px; 
+        background-color: rgb(205, 235, 205)
+    }
+
+    div.section {
+        padding: 20px; 
+        border-radius: 5px;
+        margin: 12px;
+        background-color: #e9ffe9;
+    }
+
+    input[type="radio"] {
+        position: relative;
+        align-content: center;
+        height: auto;
+        width: 16px;
+        scale: 2.0;
+    }
+
+    input:invalid
+    { 
+        background: rgb(255, 232, 210);
+    }
+
+    input:focus:invalid {
+        background: white;
+    }
+
+    @media (min-width: 550px) {
+        th,
+        td {
+            word-break: keep-all;
+        }
+    }
+</style>
+
+<head>
+    <title>שאלון פעילות יום יומי - Waisman ADL</title>
+</head>
+<body>
+    <div dir="rtl" class="main-block">
+        <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLScJChaIHiHODTTqT5RwooZP6a51e53Quj_dKZV2nTKj4xrXiQ/formResponse">
+            <div>
+                <h1 style="text-align: center">שאלון פעילות יום יומי</h1>
+                <h1 style="font-size: 20px; direction: ltr; text-align: center">Waisman ADL</h1>
+            </div>
+            <div class="header">
+                <p class="question">תאריך:</p>
+                <input type="date"  name="entry.1781013980" required>
+            </div>
+            <div class="header">
+                <p class="question">שם משתתף המחקר:</p>
+                <input type="text" placeholder=" " name="entry.2037807877" required>
+            </div>
+            <div class="header">
+                <p class="question">מספר תעודת הזהות של משתתף המחקר:</p>
+                <input type="text" placeholder=" " name="entry.1700109560" required> 
+            </div>
+            <div class="header">
+                <p class="question">שם מראיין:</p>
+                <input type="text" placeholder=" " name="entry.479684053" required>
+            </div>
+            <div class="header">
+                <p class="question">תפקיד ממלא השאלון:</p>
+                <table>
+                    <tr>
+                        <td class="RadioStyle"><input type="radio" value="אם" name="entry.790830081" required></td>
+                        <td class="RadioQuestion"> אם</td>
+                    </tr>
+                    <tr>
+                        <td class="RadioStyle"><input type="radio" value="אב" name="entry.790830081" required></td>
+                        <td class="RadioQuestion"> אב</td>
+                    </tr>
+                    <tr>
+                        <td class="RadioStyle"><input type="radio" value="מטפל אחראי בהוסטל" name="entry.790830081" required></td>
+                        <td class="RadioQuestion"> מטפל אחראי בהוסטל</td>
+                    </tr>
+                    <tr>
+                        <td class="RadioStyle"><input type="radio" value="אחר" name="entry.790830081" required></td>
+                        <td class="RadioQuestion"> אחר</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="section">
+                <h3>הוראות: <br>
+                    ברצוננו לדעת מה רמת העצמאות הנוכחית של בנך/בתך/חניך בביצוע פעילויות יומיומיות.<br> עבור כל פעילות יש לציין מספר המתאר בצורה הטובה ביותר את יכולת בנך/בתך/חניך לבצע את המשימה, לדוגמה עצמאי פירושו שבנך/בתך/חניך מסוגלים לבצע את המשימה ללא כל עזרה או סיוע.
+                </h3>
+            </div>
+            <div class="section">
+                <p class="question">אנא דרג את רמת העצמאות של [שם משתתף המחקר] ב...</p>
+                <table style="direction: rtl;">
+                    <tr>
+                        <th class="first-col"></th>
+                        <th>0<br>לא מבצע כלל</th>
+                        <th>1<br>מבצע/ת עם סיוע</th>
+                        <th>2<br>עצמאי/ת או מבצע/ת לבד</th>
+                    </tr>
+                    <tr>
+                        <td class="first-col">1. מציע/ה את המיטה</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.912366143" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.912366143" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.912366143" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">2. ביצוע מטלות ביתיות, כולל איסוף (בלגן) בבית, סידור, ניקיון ביתי קל וכדו'.</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.2067722760" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.2067722760" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.2067722760" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">3. ביצוע שליחויות, כולל קניות בחנויות</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.445333807" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.445333807" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.445333807" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">4. ביצוע תיקונים בבית, כולל תיקונים פשוטים, לא טכניים באופיים, ברחבי הבית.<br>כגון: החלפת נורות או תיקון בורג רופף</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.2077143503" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.2077143503" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.2077143503" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">5. ביצוע עבודות כביסה, שטיפה וייבוש</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.792293378" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.792293378" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.792293378" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">6. רחצה - מקלחת / אמבטיה</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.1015771162" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.1015771162" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.1015771162" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">7. טיפוח, צחצוח שיניים, סירוק ו/או הברשת שיער</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.1900496" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.1900496" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.1900496" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">8. פעולות התלבשות והתפשטות</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.270025411" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.270025411" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.270025411" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">9. הליכה לשירותים</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.1049671179" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.1049671179" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.1049671179" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">10. הכנת מאכלים פשוטים שאינם דורשים ערבוב או בישול.<br> כגון: כריכים, דגני בוקר קרים וכדו'.</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.263579647" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.263579647" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.263579647" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">11. הכנה ובישול של מאכלים פשוטים כגון טיגון ביצים, הכנת פנקייק, חימום אוכל במיקרוגל וכדו'</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.778602698" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.778602698" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.778602698" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">12. הכנת ארוחה שלמה</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.654095832" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.654095832" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.654095832" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">13. עריכת שולחן ופינויו</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.1950717742" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.1950717742" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.1950717742" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">14. שתייה מכוס</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.1786975926" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.1786975926" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.1786975926" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">15. אכילה מצלחת</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.957832783" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.957832783" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.957832783" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">16. שטיפת כלים (כולל שימוש במדיח כלים)</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.1827879037" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.1827879037" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.1827879037" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">17. בנקאות וניהול כספים יום יומי, כולל מעקב אחר מזומנים, חשבון עו"ש, תשלום חשבונות וכדו'.<br>(<b>הערה:</b> אם הוא/היא מסוגלים לבצע חלק אך לא את הכל יש לסמן: '1' מבצע/ת עם סיוע)</td>
+                        <td><input type="radio" value="0 - לא מבצע כלל"         name="entry.1187918885" required></td>
+                        <td><input type="radio" value="1 - מבצע/ת עם סיוע"      name="entry.1187918885" required></td>
+                        <td><input type="radio" value="2 - עצמאי או מבצע/ת לבד" name="entry.1187918885" required></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="btn-block">
+                <button type="submit" href="/">שלח טופס</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

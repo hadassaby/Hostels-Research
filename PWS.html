@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    html,
+    body {
+        min-height: 100%;
+        display: flex;
+    }
+
+    body,
+    input {
+        padding: 0;
+        margin: 0;
+        outline: none;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 14px;
+        color: black;
+        line-height: 22px;
+    }
+
+    h1,
+    h4 {
+        font-weight: 400;
+    }
+
+    h4 {
+        margin: 22px 0 4px;
+    }
+
+    h5 {
+        text-transform: uppercase;
+        color: #095484;
+    }
+
+    .main-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+    }
+
+    form {
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 2px 5px #ccc;
+        background: #fff;
+    }
+
+    input {
+        width: calc(100% - 10px);
+        padding: 5px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+    }
+
+    textarea {
+        width: calc(100% - 6px);
+        outline: none;
+    }
+
+    input:hover,
+    textarea:hover {
+        outline: none;
+        border: 1px solid #095484;
+    }
+
+    th,
+    td {
+        width: 10%;
+        padding: 15px 0;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+        vertical-align: unset;
+        line-height: 18px;
+        border-bottom: 1px solid #ccc;
+        border-left: 1px solid gray;
+    }
+
+    .additional-question th,
+    .additional-question td {
+        width: 38%;
+    }
+
+    .course-rate th,
+    .course-rate td {
+        width: 19%;
+    }
+
+    .first-col,
+    .additional-question .first-col,
+    .course-rate .first-col {
+        width: 45%;
+        font-weight: bold;
+        text-align: right;
+        word-break: keep-all;
+        color: darkblue;
+        font-size: 16px;
+    }
+
+    .question,
+    .comments {
+        margin: 15px 0 5px;
+        font-size: 17px; 
+        color: darkblue; 
+        font-weight: bold;
+    }
+
+    .question-answer label {
+        display: inline-block;
+        padding: 0 20px 15px 0;
+    }
+
+    .question-answer input {
+        width: auto;
+    }
+
+    .question-answer,
+    table {
+        width: 100%;
+    }
+
+    .btn-block {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    button {
+        width: 150px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #095484;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #0666a3;
+    }
+
+    div.header {
+        padding: 20px; 
+        border-radius: 5px;
+        margin: 12px; 
+        background-color: rgb(206, 220, 233)
+    }
+
+    div.section {
+        padding: 20px; 
+        border-radius: 5px;
+        margin: 12px; 
+        background-color: rgb(218, 224, 230)
+    }
+
+    input[type="radio"] {
+        position: relative;
+        align-content: center;
+        height: auto;
+        width: 16px;
+        scale: 2.0;
+    }
+
+    input:invalid { 
+        background: rgb(250, 226, 226);
+
+    }
+
+    input:focus:invalid {
+        background: white;
+    }
+
+</style>
+<head>
+    <title>שאלון מאפייני התנהגות PWS</title>
+</head>
+<body>
+    <div dir="rtl" class="main-block">
+        <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdg34Epuvb56Ga7H9KL7gUPwtaABdWB_5q0jEG1sigMxOSOTg/formResponse">
+            <div>
+                <h1 style="text-align: center">שאלון מאפייני התנהגות PWS</h1>
+            </div>
+            <div class="header">
+                <p class="question">תאריך:</p>
+                <input type="date"  name="entry.820884941" required>
+            </div>
+            <div class="header">
+                <p class="question">שם הנבדק:</p>
+                <input type="text" placeholder="הנבדק" name="entry.2119456475" required>
+            </div>
+            <div class="header">
+                <p class="question">שם ממלא השאלון:</p>
+                <input type="text" placeholder="ממלא השאלון" name="entry.1344334079" required>
+            </div>
+            <div class="header">
+                <p class="question">תפקיד ממלא השאלון:</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="אם"                 name="entry.1613374339" required> אם</div>
+                    <div><input type="radio" value="אב"                 name="entry.1613374339" required> אב</div>
+                    <div><input type="radio" value="מטפל אחראי בהוסטל" name="entry.1613374339" required> מטפל אחראי בהוסטל</div>
+                    <div><input type="radio" value="אחר"                name="entry.1613374339" required> אחר</div>
+                </div>
+            </div>
+            <div class="header">
+                <p class="question">היכן הנבדק גר:</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="בבית"   name="entry.1086581864" required> בבית</div>
+                    <div><input type="radio" value="בהוסטל" name="entry.1086581864" required> בהוסטל</div>
+                </div>
+            </div>
+            <div class="section">
+                <p class="question">אנא התייחס להתנהגות האופיינית לנבדק ב-6 החודשים האחרונים</p>
+                <table style="direction: rtl;">
+                    <tr>
+                        <th class="first-col"></th>
+                        <th>לעיתים קרובות</th>
+                        <th>לפעמים</th>
+                        <th>כמעט אף פעם</th>
+                    </tr>
+                    <tr>
+                        <td class="first-col">1. מגיב באופן חריג למצבי לחץ יומיומיים</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.873963418" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.873963418" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.873963418" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">2. מתקשה לסבול אי וודאות</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1236482268" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1236482268" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1236482268" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">3. מרבה להתלונן על מחושים גופניים (כאב ראש, כאב בטן, חולשה)</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1067089918" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1067089918" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1067089918" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">4. נוטה להיות תלוי באחרים</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.645345546" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.645345546" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.645345546" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">5. זקוק לתמיכה</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1473588558" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1473588558" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1473588558" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">6. מגיב באופן חריג למצבים טעונים רגשית (עצב, שמחה, התרגשות, כעס, אכזבה וכו')</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1326662354" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1326662354" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1326662354" required></td>
+                    </tr>
+                </table>
+                <p class="question">7. לגבי השאלות הקודמות (1-6) האם יש הבדל בהתנהגויות הללו כשנמצא במקומות שונים? (למשל בבית לעומת ההוסטל או ביה"ס)? אם יש הבדל, בחר במקום בו מתפקד הכי גרוע.</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="אין הבדל"              name="entry.1747016377" required> אין הבדל</div>
+                    <div><input type="radio" value="יש הבדל - בבית"        name="entry.1747016377" required> יש הבדל - בבית</div>
+                    <div><input type="radio" value="יש הבדל - בהוסטל"      name="entry.1747016377" required> יש הבדל - בהוסטל</div>
+                    <div><input type="radio" value="יש הבדל - בבית הספר"   name="entry.1747016377" required> יש הבדל - בבית הספר</div>
+                </div>
+            </div>
+            <div class="section">
+                <p class="question">לגבי ארבע השאלות הבאות (8-11): אילו הייתה לו אפשרות (היה ללא השגחה ו/או המטבח לא היה נעול וכו'), האם...</p>
+                <table style="direction: rtl;">
+                    <tr>
+                        <th class="first-col"></th>
+                        <th>לעיתים קרובות</th>
+                        <th>לפעמים</th>
+                        <th>כמעט אף פעם</th>
+                    </tr>
+                    <tr>
+                        <td class="first-col">8. היה אוכל מזון בלתי אכיל (קפוא, נא, מקולקל, מזון של בעלי חיים)</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1614268457" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1614268457" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1614268457" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">9. היה לוקח מזון בסתר (באמצע הלילה או בהזדמנויות אחרות)</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.594779407" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.594779407" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.594779407" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">10. היה לוקח מזון מפחי זבל</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1715956218" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1715956218" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1715956218" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">11. היה לוקח מזון ללא רשות (מחנות, מתיקים של אחרים וכד')</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.809724524" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.809724524" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.809724524" required></td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <p class="question">האם...</p>
+                <table style="direction: rtl;">
+                    <tr>
+                        <th class="first-col"></th>
+                        <th>לעיתים קרובות</th>
+                        <th>לפעמים</th>
+                        <th>כמעט אף פעם</th>
+                    </tr>
+                    <tr>
+                        <td class="first-col">12. מתפרץ אם מונעים ממנו מזון נוסף שהוא דורש</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.2032840012" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.2032840012" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.2032840012" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">13. מתווכח או מתחכם כדי להשיג מזון</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1301504564" required></td>
+                        <td><input type="radio" value="לפעמים"         name="entry.1301504564" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1301504564" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">14. משתמש באיומים או באלימות מילולית או פיזית להשגת מזון</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1029132661" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1029132661" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1029132661" required></td>
+                    </tr>
+                </table>
+                <p class="question">15. לגבי השאלות הקודמות (8-14), האם יש הבדל בהתנהגויות הללו כשנמצא במקומות שונים? (למשל בבית לעומת ההוסטל או ביה"ס)? אם יש הבדל, בחר במקום בו מתפקד הכי גרוע.</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="אין הבדל"              name="entry.1626585160" required> אין הבדל</div>
+                    <div><input type="radio" value="יש הבדל - בבית"        name="entry.1626585160" required> יש הבדל - בבית</div>
+                    <div><input type="radio" value="יש הבדל - בהוסטל"      name="entry.1626585160" required> יש הבדל - בהוסטל</div>
+                    <div><input type="radio" value="יש הבדל - בבית הספר"   name="entry.1626585160" required> יש הבדל - בבית הספר</div>
+                </div>
+            </div>
+            <div class="section">
+                <p class="question">האם...</p>
+                <table style="direction: rtl;">
+                    <tr>
+                        <th class="first-col"></th>
+                        <th>לעיתים קרובות</th>
+                        <th>לפעמים</th>
+                        <th>כמעט אף פעם</th>
+                    </tr>
+                    <tr>
+                        <td class="first-col">16. נוטה "להיתקע" בנושא מסוים (פרסוורטיביות בחשיבה)</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1216822349" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1216822349" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1216822349" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">17. מתקשה להתמודד עם שינויים או מעברים</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1970161193" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1970161193" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1970161193" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">18. יש לו טכסים חוזרים</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1729274037" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1729274037" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1729274037" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">19. התעניין בתחומי עניין חריגים (עיסוק יתר בחיפוש מילים, פאזלים או כדומה)</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.770731081" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.770731081" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.770731081" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">20. אוסף ו/או אוגר חפצים שאינו זקוק להם</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1273648827" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1273648827" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1273648827" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">21. עקשן עד כדי חוסר היגיון</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.496566674" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.496566674" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.496566674" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">22. מתקשה להיות גמיש ולזהות נקודות מבט שונות על אותו נושא</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1413747250" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1413747250" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1413747250" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">23. אנוכי, מרוכז בעצמו</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1793735037" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1793735037" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1793735037" required></td>
+                    </tr>
+                </table>
+                <p class="question">24. לגבי השאלות הקודמות (16-23), האם יש הבדל בהתנהגויות הללו כשנמצא במקומות שונים? (למשל בבית לעומת ההוסטל או ביה"ס)? אם יש הבדל, בחר במקום בו מתפקד הכי גרוע.</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="אין הבדל"              name="entry.1328216498" required> אין הבדל</div>
+                    <div><input type="radio" value="יש הבדל - בבית"        name="entry.1328216498" required> יש הבדל - בבית</div>
+                    <div><input type="radio" value="יש הבדל - בהוסטל"      name="entry.1328216498" required> יש הבדל - בהוסטל</div>
+                    <div><input type="radio" value="יש הבדל - בבית הספר"   name="entry.1328216498" required> יש הבדל - בבית הספר</div>
+                </div>
+            </div>
+            <div class="section">
+                <p class="question">האם...</p>
+                <table style="direction: rtl;">
+                    <tr>
+                        <th class="first-col"></th>
+                        <th>לעיתים קרובות</th>
+                        <th>לפעמים</th>
+                        <th>כמעט אף פעם</th>
+                    </tr>
+                    <tr>
+                        <td class="first-col">25. לא ממושמע</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1264799698" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1264799698" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1264799698" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">26. וכחן בנושאים שלא קשורים למזון</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1365747815" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1365747815" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1365747815" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">27. מתפרץ בכעס במצבים שלא קשורים למזון</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.521512268" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.521512268" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.521512268" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">28. בעקבות כעס - מסתגר, "מתנתק"</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1249071008" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1249071008" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1249071008" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">29. מפעיל מניפולציות במצבים שלא קשורים למזון</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1950776904" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1950776904" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1950776904" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">30. משקר או ממציא דברים כדי להצדיק את התנהגותו</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.342989598" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.342989598" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.342989598" required></td>
+                    </tr>
+                </table>
+                <p class="question">31. לגבי השאלות הקודמות (25-30) האם יש הבדל בהתנהגויות הללו כשנמצא במקומות שונים? (למשל בבית לעומת ההוסטל או ביה"ס)? אם יש הבדל, בחר במקום בו מתפקד הכי גרוע.</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="אין הבדל"              name="entry.1946610314" required> אין הבדל</div>
+                    <div><input type="radio" value="יש הבדל - בבית"        name="entry.1946610314" required> יש הבדל - בבית</div>
+                    <div><input type="radio" value="יש הבדל - בהוסטל"      name="entry.1946610314" required> יש הבדל - בהוסטל</div>
+                    <div><input type="radio" value="יש הבדל - בבית הספר"   name="entry.1946610314" required> יש הבדל - בבית הספר</div>
+                </div>
+            </div>
+            <div class="section">
+                <p class="question">האם...</p>
+                <table style="direction: rtl;">
+                    <tr>
+                        <th class="first-col"></th>
+                        <th>לעיתים קרובות</th>
+                        <th>לפעמים</th>
+                        <th>כמעט אף פעם</th>
+                    </tr>
+                    <tr>
+                        <td class="first-col">32. מחטט בפצעים בגפיים ו/או בפנים</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1930583236" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1930583236" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1930583236" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">33. פוצע עצמו במקומות המוצנעים (אינטימיים)</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.2036967914" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.2036967914" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.2036967914" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">34. תולש שיער</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1180861591" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1180861591" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1180861591" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">35. בעל סף גבוה לכאב</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1154245581" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1154245581" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1154245581" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">36. אינו משתתף בקלות במשחק או שיחה עם אחרים (פרט להורים ומטפלים)</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.1929164823" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.1929164823" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.1929164823" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">37. אינו יוצר קשר עין רגיל</td>
+                        <td><input type="radio" value="לעיתים קרובות" name="entry.490764100" required></td>
+                        <td><input type="radio" value="לפעמים"        name="entry.490764100" required></td>
+                        <td><input type="radio" value="כמעט אף פעם"   name="entry.490764100" required></td>
+                    </tr>
+                </table>
+                <p class="question">38. לגבי השאלות הקודמות (32-37) האם יש הבדל בהתנהגויות הללו כשנמצא במקומות שונים? (למשל בבית לעומת ההוסטל או ביה"ס)? אם יש הבדל, בחר במקום בו מתפקד הכי גרוע.</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="אין הבדל"              name="entry.1326459747" required> אין הבדל</div>
+                    <div><input type="radio" value="יש הבדל - בבית"        name="entry.1326459747" required> יש הבדל - בבית</div>
+                    <div><input type="radio" value="יש הבדל - בהוסטל"      name="entry.1326459747" required> יש הבדל - בהוסטל</div>
+                    <div><input type="radio" value="יש הבדל - בבית הספר"   name="entry.1326459747" required> יש הבדל - בבית הספר</div>
+                </div>
+            </div>
+            <div class="section">
+                <p class="question">אם יש התנהגויות או מאפיינים אחרים שלא הופיעו לעיל, נא פרט אותם כאן</p>
+                <input type="text" placeholder="פירוט" name="entry.242743089" required>
+            </div>
+            <div class="btn-block">
+                <button type="submit" href="/">שלח טופס</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

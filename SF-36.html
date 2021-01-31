@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    html,
+    body {
+        min-height: 100%;
+        display: flex;
+    }
+
+    body,
+    input {
+        padding: 0;
+        margin: 0;
+        outline: none;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 14px;
+        color: black;
+        line-height: 22px;
+    }
+
+    h1,
+    h4 {
+        font-weight: 400;
+    }
+
+    h4 {
+        margin: 22px 0 4px;
+    }
+
+    h5 {
+        text-transform: uppercase;
+        color: #095484;
+    }
+
+    .main-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+    }
+
+    form {
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 2px 5px #ccc;
+        background: #fff;
+    }
+
+    input {
+        width: calc(100% - 10px);
+        padding: 5px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+    }
+
+    textarea {
+        width: calc(100% - 6px);
+        outline: none;
+    }
+
+    input:hover,
+    textarea:hover {
+        outline: none;
+        border: 1px solid #095484;
+    }
+
+    th,
+    td {
+        width: 10%;
+        padding: 15px 0;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+        vertical-align: unset;
+        line-height: 18px;
+        border-bottom: 1px solid #ccc;
+        border-left: 1px solid gray;
+    }
+
+    .additional-question th,
+    .additional-question td {
+        width: 38%;
+    }
+
+    .course-rate th,
+    .course-rate td {
+        width: 19%;
+    }
+
+    .first-col,
+    .additional-question .first-col,
+    .course-rate .first-col {
+        width: 40%;
+        font-weight: bold;
+        text-align: right;
+        word-break: keep-all;
+        color: darkblue;
+        font-size: 16px;
+    }
+
+    .question,
+    .comments {
+        margin: 15px 0 5px;
+        font-size: 17px; 
+        color: darkblue; 
+        font-weight: bold;
+    }
+
+    .question-answer label {
+        display: inline-block;
+        padding: 0 20px 15px 0;
+    }
+
+    .question-answer input {
+        width: auto;
+    }
+
+    .question-answer,
+    table {
+        width: 100%;
+    }
+
+    .btn-block {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    button {
+        width: 150px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #095484;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #0666a3;
+    }
+
+    div.header {
+        padding: 20px; 
+        border-radius: 5px;
+        margin: 12px; 
+        background-color: lightblue;
+    }
+
+    div.section {
+        padding: 20px; 
+        border-radius: 5px;
+        margin: 12px; 
+        background-color: lightcyan;
+    }
+
+    input[type="radio"] {
+        position: relative;
+        align-content: center;
+        height: auto;
+        width: 16px;
+        scale: 2.0;
+    }
+
+    input:invalid
+    { 
+        background: rgb(255, 232, 210);
+    }
+
+    input:focus:invalid {
+        background: white;
+    }
+</style>
+
+<head>
+    <title>שאלון איכות חיים מקוצר - 36</title>
+</head>
+<body>
+    <div dir="rtl" class="main-block">
+        <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSePTwP4Tb46NInvtXCvhBeJNp30rB1_w268nl13O7KwkMFj8g/formResponse">
+            <div>
+                <h1 style="text-align: center;">שאלון איכות חיים מקוצר - 36</h1>
+                <h1 style="font-size: 20px; direction: ltr; text-align: center;">Item Short Form Survey Instrument (SF-36)</h1>
+            </div>
+            <div class="header">
+                <h2>השאלות הבאות מתיחסות להשקפותיך אודות בריאותך. <br><br>
+                    המידע הזה יעזור לך לבדוק כיצד את/ה מרגיש/ה ובאיזו מידה את/ה מסוגל/ת לבצע את
+                    הפעילויות היום יומיות שלך. <br><br>
+                    ענה/י על כל שאלה ע"י סימון התשובה כפי שמצוין.<br><br>
+                    אם את/ה לא בטוח/ה כיצד לענות
+                    לשאלה, אנא תן/י את התשובה הטובה ביותר שאת/ה יכול/ה.
+                </h1>
+            </div>
+            <div class="header">
+                <p class="question">תאריך:</p>
+                <input type="date" name="entry.1781013980" required>
+            </div>
+            <div class="header">
+                <p class="question">מספר תעודת הזהות של משתתף המחקר:</p>
+                <input type="text" placeholder="ת.ז." name="entry.2054194911" required>
+            </div>
+            <div class="header">
+                <p class="question">זהות מרואיין:</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="משתתף המחקר" name="entry.131281893" required> משתתף המחקר</div>
+                    <div><input type="radio" value="הורה" name="entry.131281893" /> הורה</div>
+                    <div><input type="radio" value="מטפל" name="entry.131281893" /> מטפל</div>
+                    <div><input type="radio" value="אפוטרופוס" name="entry.131281893" /> אפוטרופוס</div>
+                    <div><input type="radio" value="אחר" name="entry.131281893" /> אחר</div>
+                </div>
+            </div>
+            <div class="section">
+                <p class="question" >1 .כיצד היית מעריך/ה את מצב בריאותך באופן כללי?</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="א. מצויין." name="entry.361297791" required> א. מצויין.</div>
+                    <div><input type="radio" value="ב. טוב מאוד." name="entry.361297791"> ב. טוב מאוד.</div>
+                    <div><input type="radio" value="ג. טוב." name="entry.361297791"> ג. טוב.</div>
+                    <div><input type="radio" value="ד. לא כל כך טוב." name="entry.361297791"> ד. לא כל כך טוב.</div>
+                    <div><input type="radio" value="ה. גרוע" name="entry.361297791"> ה. גרוע</div>
+                </div>
+            </div>
+            <div class="section">
+                <p class="question">2. כיצד היית מעריך/ה, באופן כללי את מצב בריאותך כעת, בהשוואה למצבך לפני שנה?<br> (נא לבחור תשובה אחת).</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="א. טוב בהרבה מאשר לפני שנה." name="entry.1798559979"  required> א. טוב בהרבה מאשר לפני שנה. </div>
+                    <div><input type="radio" value="ב. טוב במקצת מאשר לפני שנה." name="entry.1798559979"  required>  ב. טוב במקצת מאשר לפני שנה. </div>
+                    <div><input type="radio" value="ג. דומה למדי למצב שלפני שנה." name="entry.1798559979" required> ג. דומה למדי למצב שלפני שנה.</div>
+                    <div><input type="radio" value="ד. גרוע במקצת מאשר לפני שנה." name="entry.1798559979" required> ד. גרוע במקצת מאשר לפני שנה.</div>
+                    <div><input type="radio" value="ה. גרוע בהרבה מאשר לפני שנה." name="entry.1798559979" required> ה. גרוע בהרבה מאשר לפני שנה.</div>
+                </div>
+            </div>
+            <div class="section">
+                <p class="question">השאלות הבאות מתייחסות לפעילויות שאת/ה עשוי לבצע במשך יום רגיל. באיזו מידה מגביל אותך מצב בריאותך כעת בביצוע הפעילויות הבאות? (נא לסמן ספרה אחת בכל שורה).</p>
+                <table style="direction: rtl;">
+                    <tr>
+                        <th class="first-col"></th>
+                        <th>1<br>מגביל מאוד</th>
+                        <th>2<br>מגביל מעט</th>
+                        <th>3<br>לא מגביל כלל</th>
+                    </tr>
+                    <tr>
+                        <td class="first-col">3. פעילויות נמרצות כמו: ריצה, הרמת משאות כבדים. השתתפות בפעילויות ספורטיביות מאומצות.</td>
+                        <td><input type="radio" value="1. מגביל מאוד"   name="entry.1594073419" required></td>
+                        <td><input type="radio" value="2. מגביל מעט"    name="entry.1594073419" required></td>
+                        <td><input type="radio" value="3. לא מגביל כלל" name="entry.1594073419" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">4. פעילויות מתונות כמו: הזזת שולחן, שימוש בשואב אבק, פעילות ספורטיבית מתונה כמו שחיה.</td>
+                        <td><input type="radio" value="1. מגביל מאוד"   name="entry.930457843" required></td>
+                        <td><input type="radio" value="2. מגביל מעט"    name="entry.930457843" required></td>
+                        <td><input type="radio" value="3. לא מגביל כלל" name="entry.930457843" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">5. הרמה או נשיאה של מצרכי מכולת.</td>
+                        <td><input type="radio" value="1. מגביל מאוד"   name="entry.1611882768" required></td>
+                        <td><input type="radio" value="2. מגביל מעט"    name="entry.1611882768" required></td>
+                        <td><input type="radio" value="3. לא מגביל כלל" name="entry.1611882768" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">6. עליה של מספר קומות במדרגות.</td>
+                        <td><input type="radio" value="1. מגביל מאוד"   name="entry.577144041" required></td>
+                        <td><input type="radio" value="2. מגביל מעט"    name="entry.577144041" required></td>
+                        <td><input type="radio" value="3. לא מגביל כלל" name="entry.577144041" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">7. עליה של קומה אחת במדרגות.</td>
+                        <td><input type="radio" value="1. מגביל מאוד"   name="entry.1664490561" required></td>
+                        <td><input type="radio" value="2. מגביל מעט"    name="entry.1664490561" required></td>
+                        <td><input type="radio" value="3. לא מגביל כלל" name="entry.1664490561" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">8. כפיפה, כריעה.</td>
+                        <td><input type="radio" value="1. מגביל מאוד"   name="entry.477725626" required></td>
+                        <td><input type="radio" value="2. מגביל מעט"    name="entry.477725626" required></td>
+                        <td><input type="radio" value="3. לא מגביל כלל" name="entry.477725626" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">9. הליכה למרחק של יותר מקילומטר.</td>
+                        <td><input type="radio" value="1. מגביל מאוד"   name="entry.2142192896" required></td>
+                        <td><input type="radio" value="2. מגביל מעט"    name="entry.2142192896" required></td>
+                        <td><input type="radio" value="3. לא מגביל כלל" name="entry.2142192896" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">10. הליכה למרחק של כחצי קילומטר.</td>
+                        <td><input type="radio" value="1. מגביל מאוד"   name="entry.167580372" required></td>
+                        <td><input type="radio" value="2. מגביל מעט"    name="entry.167580372" required></td>
+                        <td><input type="radio" value="3. לא מגביל כלל" name="entry.167580372" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">11. הליכה למרחק של כ - 100 מטר.</td>
+                        <td><input type="radio" value="1. מגביל מאוד"   name="entry.517534160" required></td>
+                        <td><input type="radio" value="2. מגביל מעט"    name="entry.517534160" required></td>
+                        <td><input type="radio" value="3. לא מגביל כלל" name="entry.517534160" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">12. רחצה או לבישת בגדים ללא עזרה.</td>
+                        <td><input type="radio" value="1. מגביל מאוד"   name="entry.409684510" required></td>
+                        <td><input type="radio" value="2. מגביל מעט"    name="entry.409684510" required></td>
+                        <td><input type="radio" value="3. לא מגביל כלל" name="entry.409684510" required></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="section">
+                <p class="question">בארבעת השבועות האחרונים, האם היו לך אחת או יותר מהבעיות הבאות במסגרת עבודתך או בפעילויות יומיומיות רגילות אחרות כתוצאה ממצב בריאותך הגופני?  (נא לסמן ספרה אחת בכל שורה)</p>
+                <table style="direction: rtl;">
+                    <tr>
+                        <th class="first-col"></th>
+                        <th>1 - כן</th>
+                        <th>2 - לא</th>
+                    </tr>
+                    <tr>
+                        <td class="first-col">13. האם הפחתת את כמות הזמן שהקדשת לעבודתך או לפעילויות אחרות?</td>
+                        <td><input type="radio" value="1 - כן" name="entry.1244135111" required></td>
+                        <td><input type="radio" value="2 - לא" name="entry.1244135111" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">14. האם ביצעת פחות משהיית רוצה?</td>
+                        <td><input type="radio" value="1 - כן" name="entry.1300514146" required></td>
+                        <td><input type="radio" value="2 - לא" name="entry.1300514146" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">15. האם היית מוגבל/ת בביצוע סוג כלשהו של עבודה או פעילויות אחרות?</td>
+                        <td><input type="radio" value="1 - כן" name="entry.1796189400" required></td>
+                        <td><input type="radio" value="2 - לא" name="entry.1796189400" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">16. האם היו לך קשיים בביצוע עבודתך או פעילויות אחרות (למשל: נדרשת למאמץ יתר).</td>
+                        <td><input type="radio" value="1 - כן" name="entry.4992333" required></td>
+                        <td><input type="radio" value="2 - לא" name="entry.4992333" required></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="section">
+                <p class="question">בארבעת השבועות האחרונים, האם היו לך אחת או יותר מהבעיות הבאות במסגרת עבודתך או בפעילויות יומיומיות אחרות כתוצאה מבעיות רגשיות כלשהן (למשל הרגשת מדוכא/ת או חרד/ה)? (נא לסמן ספרה אחת בכל שורה)</p>
+                <table style="direction: rtl;">
+                    <tr>
+                        <th class="first-col"></th>
+                        <th>1 - כן</th>
+                        <th>2 - לא</th>
+                    </tr>
+                    <tr>
+                        <td class="first-col">17. האם הפחתת את כמות הזמן שהקדשת לעבודתך או לפעילויות אחרות?</td>
+                        <td><input type="radio" value="1 - כן" name="entry.451613216" required></td>
+                        <td><input type="radio" value="2 - לא" name="entry.451613216" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">18. האם ביצעת פחות משהיית רוצה?</td>
+                        <td><input type="radio" value="1 - כן" name="entry.973282644" required></td>
+                        <td><input type="radio" value="2 - לא" name="entry.973282644" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">19. האם לא עשית את עבודתך או פעילויות אחרות במידת ההקפדה הרגילה?</td>
+                        <td><input type="radio" value="1 - כן" name="entry.400745069" required></td>
+                        <td><input type="radio" value="2 - לא" name="entry.400745069" required></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="section">
+                <p class="question" aria-required>20. בארבעת השבועות האחרונים, באיזו מידה הפריעו מצב בריאותך הגופני או בעיותיך הרגשיות לפעילויותיך החברתיות הרגילות עם המשפחה, חברים,שכנים? (נא לסמן תשובה אחת).</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="א. כלל לא הפריעו." name="entry.884740744" required> א. כלל לא הפריעו.</div>
+                    <div><input type="radio" value="ב. הפריעו מעט." name="entry.884740744" required> ב. הפריעו מעט.</div>
+                    <div><input type="radio" value="ג. הפריעו במידה מתונה." name="entry.884740744" required> ג. הפריעו במידה מתונה.</div>
+                    <div><input type="radio" value="ד. הפריעו די הרבה." name="entry.884740744" required> ד. הפריעו די הרבה.</div>
+                    <div><input type="radio" value="ה. הפריעו הרבה מאוד." name="entry.884740744" required> ה. הפריעו הרבה מאוד.</div>
+                </div>
+            </div>
+            <div class="section">
+                <p class="question" aria-required>21. באיזו מידה היו לך כאבים גופניים, בארבעת השבועות האחרונים? (נא לסמן תשובה אחת)</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="א. כלל לא היו כאבים." name="entry.650874957" required> א. כלל לא היו כאבים.</div>
+                    <div><input type="radio" value="ב. כאבים קלים מאוד." name="entry.650874957" required> ב. כאבים קלים מאוד.</div>
+                    <div><input type="radio" value="ג. כאבים קלים." name="entry.650874957"  required> ג. כאבים קלים.</div>
+                    <div><input type="radio" value="ד. כאבים מתונים." name="entry.650874957" required> ד. כאבים מתונים.</div>
+                    <div><input type="radio" value="ה. כאבים קשים." name="entry.650874957" required> ה. כאבים קשים.</div>
+                    <div><input type="radio" value="ו. כאבים קשים מאוד." name="entry.650874957" required> ו. כאבים קשים מאוד.</div>
+                </div>
+            </div>
+            <div class="section">
+                <p class="question" aria-required>22. בארבעת השבועות האחרונים, עד כמה הפריעו כאבים לעבודתך הרגילה? כולל עבודה מחוץ לבית ועבודות בית. (נא לסמן תשובה אחת).</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="א. כלל לא." name="entry.1166125783" required> א. כלל לא.</div>
+                    <div><input type="radio" value="ב. מעט." name="entry.1166125783" required> ב. מעט.</div>
+                    <div><input type="radio" value="ג. במידה מתונה (ככה-ככה)." name="entry.1166125783" required> ג. במידה מתונה (ככה-ככה).</div>
+                    <div><input type="radio" value="ד. די הרבה." name="entry.1166125783" required> ד. די הרבה.</div>
+                    <div><input type="radio" value="ה. הרבה מאוד." name="entry.1166125783" required> ה. הרבה מאוד.</div>
+                </div>
+            </div>            
+            <div class="section">
+                <p class="question">השאלות הבאות מתיחסות להרגשתך ולאופן בו הסתדרו לך דברים בחודש האחרון. עבור/י על כל שאלה. אנא סמן/י תשובה אחת שקרובה ביותר להרגשתך.כמה מהזמן במשך החודש האחרון: (נא לסמן תשובה אחת בכל שורה).</p>
+                <table style="direction: rtl;">
+                    <tr class="LongTable">
+                        <th class="first-col"></th>
+                        <th>1<br>אף פעם לא</th>
+                        <th>2<br>מעט מהזמן</th>
+                        <th>3<br>חלק מהזמן</th>
+                        <th>4<br>רוב הזמן</th>
+                        <th>5<br>חלק ניכר מהזמן</th>
+                        <th>6<br>כל הזמן</th>
+                    </tr>
+                    <tr>
+                        <td class="first-col">23. הרגשת מלא/ת מרץ?</td>
+                        <td><input type="radio" value="1. אף פעם לא"       name="entry.1852640387" required></td>
+                        <td><input type="radio" value="2. מעט מהזמן"       name="entry.1852640387" required></td>
+                        <td><input type="radio" value="3. חלק מהזמן"       name="entry.1852640387" required></td>
+                        <td><input type="radio" value="4. רוב הזמן"        name="entry.1852640387" required></td>
+                        <td><input type="radio" value="5. חלק ניכר מהזמן"  name="entry.1852640387" required></td>
+                        <td><input type="radio" value="6. כל הזמן"         name="entry.1852640387" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">24. היית מאוד עצבני/ת?</td>
+                        <td><input type="radio" value="1. אף פעם לא"       name="entry.659351873" required></td>
+                        <td><input type="radio" value="2. מעט מהזמן"       name="entry.659351873" required></td>
+                        <td><input type="radio" value="3. חלק מהזמן"       name="entry.659351873" required></td>
+                        <td><input type="radio" value="4. רוב הזמן"        name="entry.659351873" required></td>
+                        <td><input type="radio" value="5. חלק ניכר מהזמן"  name="entry.659351873" required></td>
+                        <td><input type="radio" value="6. כל הזמן"         name="entry.659351873" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">25. הרגשתך הייתה ירודה כל כך ששום דבר לא הצליח לעודד אותך?</td>
+                        <td><input type="radio" value="1. אף פעם לא"       name="entry.1366293807" required></td>
+                        <td><input type="radio" value="2. מעט מהזמן"       name="entry.1366293807" required></td>
+                        <td><input type="radio" value="3. חלק מהזמן"       name="entry.1366293807" required></td>
+                        <td><input type="radio" value="4. רוב הזמן"        name="entry.1366293807" required></td>
+                        <td><input type="radio" value="5. חלק ניכר מהזמן"  name="entry.1366293807" required></td>
+                        <td><input type="radio" value="6. כל הזמן"         name="entry.1366293807" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">26. הרגשת שליו/ה ורגוע/ה?</td>
+                        <td><input type="radio" value="1. אף פעם לא"       name="entry.475659732" required></td>
+                        <td><input type="radio" value="2. מעט מהזמן"       name="entry.475659732" required></td>
+                        <td><input type="radio" value="3. חלק מהזמן"       name="entry.475659732" required></td>
+                        <td><input type="radio" value="4. רוב הזמן"        name="entry.475659732" required></td>
+                        <td><input type="radio" value="5. חלק ניכר מהזמן"  name="entry.475659732" required></td>
+                        <td><input type="radio" value="6. כל הזמן"         name="entry.475659732" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">27. היית מלא/ה אנרגיה?</td>
+                        <td><input type="radio" value="1. אף פעם לא"       name="entry.1207609621" required></td>
+                        <td><input type="radio" value="2. מעט מהזמן"       name="entry.1207609621" required></td>
+                        <td><input type="radio" value="3. חלק מהזמן"       name="entry.1207609621" required></td>
+                        <td><input type="radio" value="4. רוב הזמן"        name="entry.1207609621" required></td>
+                        <td><input type="radio" value="5. חלק ניכר מהזמן"  name="entry.1207609621" required></td>
+                        <td><input type="radio" value="6. כל הזמן"         name="entry.1207609621" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">28. הרגשת מדוכא/ה ועצוב/ה?</td>
+                        <td><input type="radio" value="1. אף פעם לא"       name="entry.158970277" required></td>
+                        <td><input type="radio" value="2. מעט מהזמן"       name="entry.158970277" required></td>
+                        <td><input type="radio" value="3. חלק מהזמן"       name="entry.158970277" required></td>
+                        <td><input type="radio" value="4. רוב הזמן"        name="entry.158970277" required></td>
+                        <td><input type="radio" value="5. חלק ניכר מהזמן"  name="entry.158970277" required></td>
+                        <td><input type="radio" value="6. כל הזמן"         name="entry.158970277" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">29. הרגשת שחוק/ה או סחוט/ה</td>
+                        <td><input type="radio" value="1. אף פעם לא"       name="entry.876278517" required></td>
+                        <td><input type="radio" value="2. מעט מהזמן"       name="entry.876278517" required></td>
+                        <td><input type="radio" value="3. חלק מהזמן"       name="entry.876278517" required></td>
+                        <td><input type="radio" value="4. רוב הזמן"        name="entry.876278517" required></td>
+                        <td><input type="radio" value="5. חלק ניכר מהזמן"  name="entry.876278517" required></td>
+                        <td><input type="radio" value="6. כל הזמן"         name="entry.876278517" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">30. היית מאושר/ת?</td>
+                        <td><input type="radio" value="1. אף פעם לא"       name="entry.837597464" required></td>
+                        <td><input type="radio" value="2. מעט מהזמן"       name="entry.837597464" required></td>
+                        <td><input type="radio" value="3. חלק מהזמן"       name="entry.837597464" required></td>
+                        <td><input type="radio" value="4. רוב הזמן"        name="entry.837597464" required></td>
+                        <td><input type="radio" value="5. חלק ניכר מהזמן"  name="entry.837597464" required></td>
+                        <td><input type="radio" value="6. כל הזמן"         name="entry.837597464" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">31. הרגשת עייף/ה?</td>
+                        <td><input type="radio" value="1. אף פעם לא"       name="entry.240571670" required></td>
+                        <td><input type="radio" value="2. מעט מהזמן"       name="entry.240571670" required></td>
+                        <td><input type="radio" value="3. חלק מהזמן"       name="entry.240571670" required></td>
+                        <td><input type="radio" value="4. רוב הזמן"        name="entry.240571670" required></td>
+                        <td><input type="radio" value="5. חלק ניכר מהזמן"  name="entry.240571670" required></td>
+                        <td><input type="radio" value="6. כל הזמן"         name="entry.240571670" required></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="section">
+                <p class="question">32. בארבעת השבועות האחרונים, עד כמה הפריעו מצב בריאותך הגופני או בעיותיך הרגשיות לפעילויותיך החברתיות? (כמו: ביקור אצל חברים או קרובי משפחה)(נא לסמן תשובה אחת).</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="א. כל הזמן."  name="entry.929227706" required> א. כל הזמן.</div>
+                    <div><input type="radio" value="ב. רוב הזמן." name="entry.929227706" required> ב. רוב הזמן.</div>
+                    <div><input type="radio" value="ג. חלק מהזמן" name="entry.929227706" required> ג. חלק מהזמן.</div>
+                    <div><input type="radio" value="ד. מעט מהזמן" name="entry.929227706" required> ד. מעט מהזמן.</div>
+                    <div><input type="radio" value="ה. כלל לא."   name="entry.929227706" required> ה. כלל לא.</div>
+                </div>
+            </div>
+            <div class="section">
+                <p class="question">השאלות הבאות מתיחסות להרגשתך ולאופן בו הסתדרו לך דברים בחודש האחרון. עבור/י על כל שאלה. אנא סמן/י תשובה אחת שקרובה ביותר להרגשתך.כמה מהזמן במשך החודש האחרון: (נא לסמן תשובה אחת בכל שורה).</p>
+                <table style="direction: rtl;">
+                    <tr>
+                        <th class="first-col"></th>
+                        <th>1<br>בהחלט נכון</th>
+                        <th>2<br>במידה רבה נכון</th>
+                        <th>3<br>לא יודע</th>
+                        <th>4<br>במידה רבה לא נכון</th>
+                        <th>5<br>בהחלט לא נכון</th>
+                    </tr>
+                    <tr>
+                        <td class="first-col">33. נראה שאני נוטה לחלות קצת יותר בקלות מאנשים אחרים.</td>
+                        <td><input type="radio" value="1. בהחלט נכון"        name="entry.67079502" required></td>
+                        <td><input type="radio" value="2. במידה רבה נכון"    name="entry.67079502" required></td>
+                        <td><input type="radio" value="3. לא יודע"           name="entry.67079502" required></td>
+                        <td><input type="radio" value="4. במידה רבה לא נכון" name="entry.67079502" required></td>
+                        <td><input type="radio" value="5. בהחלט לא נכון"     name="entry.67079502" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">34. אני בריא/ה כמו כל מי שאני מכיר/ה.</td>
+                        <td><input type="radio" value="1. בהחלט נכון"        name="entry.251059773" required></td>
+                        <td><input type="radio" value="2. במידה רבה נכון"    name="entry.251059773" required></td>
+                        <td><input type="radio" value="3. לא יודע"           name="entry.251059773" required></td>
+                        <td><input type="radio" value="4. במידה רבה לא נכון" name="entry.251059773" required></td>
+                        <td><input type="radio" value="5. בהחלט לא נכון"     name="entry.251059773" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">35. אני צופה שתחול הרעה בבריאותי</td>
+                        <td><input type="radio" value="1. בהחלט נכון"        name="entry.1972901104" required></td>
+                        <td><input type="radio" value="2. במידה רבה נכון"    name="entry.1972901104" required></td>
+                        <td><input type="radio" value="3. לא יודע"           name="entry.1972901104" required></td>
+                        <td><input type="radio" value="4. במידה רבה לא נכון" name="entry.1972901104" required></td>
+                        <td><input type="radio" value="5. בהחלט לא נכון"     name="entry.1972901104" required></td>
+                    </tr>
+                    <tr>
+                        <td class="first-col">36. בריאותי מצויינת</td>
+                        <td><input type="radio" value="1. בהחלט נכון"        name="entry.654299578" required></td>
+                        <td><input type="radio" value="2. במידה רבה נכון"    name="entry.654299578" required></td>
+                        <td><input type="radio" value="3. לא יודע"           name="entry.654299578" required></td>
+                        <td><input type="radio" value="4. במידה רבה לא נכון" name="entry.654299578" required></td>
+                        <td><input type="radio" value="5. בהחלט לא נכון"     name="entry.654299578" required></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="btn-block">
+                <button type="submit" href="/">שלח טופס</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
