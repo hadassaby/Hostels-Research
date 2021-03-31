@@ -2,21 +2,60 @@
 
 <!DOCTYPE html>
 <html lang="he">
-<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>הסכמה מדעת</title>
-</head>
+  <style>
+    html,
+    body {
+        background-color: white;
+        min-height: 100%;
+        display: flex;
+    }
+  </style>
+  <head>
+    <title>טופס הסכמה מדעת</title>
+  </head>
 <body style="text-align: center; font-family:arial; font-size: 24px">
-  <br><br><br>
-  <h1>טופס הסכמה מדעת - אפוטרופוס</h1>
-  <img src="Pics\Agreement-1.png">
-  <img src="Pics\Agreement-2.png">
-  <img src="Pics\Agreement-3.png">
-  <img src="Pics\Agreement-4.png">
-  <img src="Pics\Agreement-5.png">
-  <img src="Pics\Agreement-6.png">
-  <img src="Pics\Agreement-7.png">
-  <img src="Pics\Agreement-8.png">
-  <img src="Pics\Agreement-9.png">
+  <div dir="rtl" class="main-block">
+    <form>
+        <div>
+            <h1 style="text-align: center">טופס הסכמה מדעת - אפוטרופוס</h1>
+        </div>
+        <div class="Page1">
+          <img src="Pics\Agreement-1.png">
+          <div style="text-align: right">
+          <div class="header">
+            <label class="question" for="name">שם פרטי של החוסה:</label>
+            <input type="text" id="name" placeholder="שם פרטי" name="" required>
+          </div>
+          <div class="header">
+            <label class="question" for="family">שם משפחה:</label>
+            <input type="text" id="family" placeholder="שם משפחה" name="" required>
+          </div>
+          <div class="header">
+            <label class="question" for="id-number">מס' תעודת זהות:</label>
+            <input type="text" id="id-number" minlength="7" maxlength="9" placeholder=" " name="" required>
+          </div>
+          <div class="header">
+            <label class="question" for="address">כתובת:</label>
+            <input type="text" id="address" placeholder=" " name="" required>
+          </div>
+          </div>
+      <img src="Pics\Agreement-2.png">
+        </div>
+        <div class="Page2">
+          <img src="Pics\Agreement-3.png">
+          <img src="Pics\Agreement-4.png">
+        </div>
+        <div class="Page3">
+          <img src="Pics\Agreement-5.png">
+          <img src="Pics\Agreement-6.png">
+        </div>
+        <div class="Page4">
+          <img src="Pics\Agreement-7.png">
+          <img src="Pics\Agreement-8.png">
+          <img src="Pics\Agreement-9.png">
+        </div>
+    </form>
+  </div>
 </body>
 </html>
