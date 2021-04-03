@@ -1,9 +1,10 @@
+{
 var wrapper = document.getElementById("signature-pad");
 var clearButton = wrapper.querySelector("[data-action=clear]");
 var savePNGButton = wrapper.querySelector("[data-action=save-png]");
 var canvas = wrapper.querySelector("canvas");
-var signatureDate = wrapper.querySelector("signature-date");
-var signatureName = wrapper.querySelector("signature-name");
+var signatureDate = document.getElementById("signatureDate");
+var signatureName = document.getElementById("signatureName");
 
 var signaturePad = new SignaturePad(canvas);
 
@@ -85,8 +86,14 @@ savePNGButton.addEventListener("click", function (event) {
     alert("נא לחתום במסגרת");
   } else {
     var dataURL = signaturePad.toDataURL();
-    signatureDate.value = Date.now();
+    //signatureDate.attributes['readonly'] = false;
+    signatureDate.contentEditable = true;
+    var d = new Date();
+    var dateTimeLocalValue = (new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString()).slice(0, -1);
+    signatureDate.value = dateTimeLocalValue;
+    signatureDate.contentEditable = false;
     download(dataURL, "signature.png");
 
   }
 });
+}
