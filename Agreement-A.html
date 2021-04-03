@@ -1,61 +1,131 @@
-<!doctype html>
-
 <!DOCTYPE html>
 <html lang="he">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!--<link rel="stylesheet" href="css/Agreement-A.css">-->
 <style>
-  body {
-    background-color: white;
-    min-height: 100%;
-    display: inline-flex;
-    font-family: david, serif, 'times new roman';
-    font-style: normal;
-    font-size: large;
-  }
+body {
+  background-color: white;
+  min-height: 100%;
+  display: flex;
+  font-family: david, serif, "times new roman";
+  font-size: 20px;
+  font-style: normal;
+}
 
-  table {
-    color: black;
-    display: flex;
-    text-align: right;
-    border-collapse: collapse;
-    font-size: large 100%;
-    margin-right: 1%;
-  }
+table {
+  color: black;
+  display: flex;
+  text-align: right;
+  border-collapse: collapse;
+  margin-right: 10%;
+}
 
-  .sign-cell {
-    border: 0px;
-  }
+.sign-cell {
+  border: 0px;
+}
 
-  .sign-cell input {
-    border-bottom: 1px solid black;
-  }
+.sign-cell input {
+  border-bottom: 1px solid black;
+}
 
-  td {
-    border: 1px solid;
-  }
+td {
+  border: 1px solid;
+}
 
-  input {
-    border: 0px;
-    align-content: center;
-  }
+input {
+  border: 0px;
+  align-content: center;
+}
 
-  .resize_fit_center {
-    max-width: 100%;
-    max-height: 100%;
-    vertical-align: middle;
-  }
-  
-  img {
-    width: 100%;
-    height: auto;
-  }
+.resize_fit_center {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+}
+
+.signature-pad {
+  border: 1px solid black;
+}
+.signature-pad {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+  max-width: 700px;
+  max-height: 460px;
+  min-width: 300px;
+  min-height: 150px;
+  border: 2px solid #e8e8e8;
+  background-color: #fff;
+  padding: 16px;
+}
+
+.signature-pad::before,
+.signature-pad::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  width: 40%;
+  height: 10px;
+  bottom: 10px;
+  background: transparent;
+}
+
+.signature-pad--body {
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: 1px solid #f4f4f4;
+}
+
+.signature-pad--body canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1px;
+}
+
+.signature-pad--footer {
+  color: #c3c3c3;
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 8px;
+}
+
+.signature-pad--actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-top: 8px;
+}
 </style>
-
 <head>
   <title>טופס הסכמה מדעת - אפוטרופוס</title>
 </head>
-
-<body style="text-align: center">
+<body onselectstart="return false">
   <div dir="rtl" class="main-block">
     <form>
       <div class="Pages">
@@ -79,7 +149,8 @@
           </tr>
           <tr class="header">
             <td><label class="question" for="address">כתובת:</label></td>
-            <td><input type="text" id="address" placeholder="" name="" required></td>
+            <!--<td><input type="text" id="address" placeholder="" name="" multiline required></td> -->
+            <td><textarea id="address" rows="2" name="" required></textarea></td>
           </tr>
         </table>
         <br>
@@ -100,22 +171,38 @@
         <br><br>
         <table class=sign-table>
           <tr>
-            <td class="sign-cell"><label class="question" for="guardian-name">שם האפוטרופוס :</label></td>
-            <td class="sign-cell"><input type="text" id="guardian-name" placeholder="פרטי ומשפחה" name="" required></td>
+            <td class="sign-cell"><label class="question" for="signatureName">שם האפוטרופוס :</label></td>
+            <td class="sign-cell"><input type="text" id="signatureName" placeholder="פרטי ומשפחה" name="" required></td>
           </tr>
           <tr>
-            <td class="sign-cell"><label class="question" for="signature">חתימה:</label></td>
-            <td class="sign-cell"><input type="text" id="signature" placeholder="חתימה" name="" required></td>
+            <td class="sign-cell"><label class="question" for="signature-pad">חתימה:</label></td>
+            <td class="sign-cell">
+              <div id="signature-pad" class="signature-pad">
+                <div class="signature-pad--body">
+                  <canvas></canvas>
+                </div>
+                <div class="signature-pad--footer">
+                  <div class="signature-pad--actions">
+                    <div>
+                      <button type="button" class="button clear" data-action="clear">מחיקה</button>
+                      <button type="button" class="button save" data-action="save-png">שמירה</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
           </tr>
           <tr>
-            <td class="sign-cell"><label class="question" for="signature-date">תאריך:</label></td>
-            <td class="sign-cell"><input type="text" id="signature-date" placeholder="תאריך חתימה" name="" required></td>
+            <td class="sign-cell"><label class="question" for="signatureDate">תאריך:</label></td>
+            <td class="sign-cell"><input type="datetime-local" id="signatureDate" placeholder="תאריך חתימה" name="" required readonly></td>
           </tr>
         </table>
         <br>
       </div>
     </form>
+    <br><br><br><br><br>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
-
 </html>
