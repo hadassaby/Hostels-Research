@@ -5,7 +5,7 @@ var savePNGButton = wrapper.querySelector("[data-action=save-png]");
 var canvas = wrapper.querySelector("canvas");
 var signatureDate = document.getElementById("signatureDate");
 var signatureName = document.getElementById("signatureName");
-
+var signatureLocation = document.getElementById("signatureLocation");
 var signaturePad = new SignaturePad(canvas);
 
 //var signaturePad = new SignaturePad(canvas, {
@@ -18,6 +18,11 @@ var signaturePad = new SignaturePad(canvas);
 // to make it look crisp on mobile devices.
 // This also causes canvas to be cleared.
 function resizeCanvas() {
+  if (signaturePad.isEmpty() == false)
+  {
+    return;
+  }
+
   // When zoomed out to less than 100%, for some very strange reason,
   // some browsers report devicePixelRatio as less than 1
   // and only part of the canvas is cleared then.
@@ -86,14 +91,17 @@ savePNGButton.addEventListener("click", function (event) {
     alert("נא לחתום במסגרת");
   } else {
     var dataURL = signaturePad.toDataURL();
-    //signatureDate.attributes['readonly'] = false;
+
+    // update signature date value and make it readonly
     signatureDate.contentEditable = true;
     var d = new Date();
     var dateTimeLocalValue = (new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString()).slice(0, -1);
     signatureDate.value = dateTimeLocalValue;
     signatureDate.contentEditable = false;
-    download(dataURL, "signature.png");
-
+    
+    // set signature location value
+    signatureLocation.value = dataURL;
+    // download(dataURL, "signature.png");
   }
 });
 }
