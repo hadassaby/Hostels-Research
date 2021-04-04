@@ -127,7 +127,7 @@ img {
 </head>
 <body onselectstart="return false">
   <div dir="rtl" class="main-block">
-    <form>
+    <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdEIGXDwwYIJcD9fXgWe_SKqiNAm-TMO_OqLHQXMxf00OjqSw/formResponse">
       <div class="Pages">
         <h1 style="text-align: center">טופס הסכמה מדעת - אפוטרופוס</h1>
       </div>
@@ -137,20 +137,20 @@ img {
         <table>
           <tr class="header">
             <td><label class="question" for="name">שם פרטי של החוסה:</label></td>
-            <td><input type="text" id="name" placeholder="" name="" required></td>
+            <td><input type="text" id="name" placeholder="" name="entry.1388997980" required></td>
           </tr>
           <tr class="header">
             <td><label class="question" for="family">שם משפחה:</label></td>
-            <td><input type="text" id="family" placeholder="" name="" required></td>
+            <td><input type="text" id="family" placeholder="" name="entry.1265832045" required></td>
           </tr>
           <tr class="header">
             <td><label class="question" for="id-number">מס' תעודת זהות:</label></td>
-            <td><input type="text" id="id-number" minlength="7" maxlength="9" placeholder=" " name="" required></td>
+            <td><input type="text" id="id-number" minlength="7" maxlength="9" placeholder=" " name="entry.421218142" required></td>
           </tr>
           <tr class="header">
             <td><label class="question" for="address">כתובת:</label></td>
             <!--<td><input type="text" id="address" placeholder="" name="" multiline required></td> -->
-            <td><textarea id="address" rows="2" name="" required></textarea></td>
+            <td><textarea id="address" rows="2" name="entry.627160120" required></textarea></td>
           </tr>
         </table>
         <br>
@@ -172,7 +172,7 @@ img {
         <table class=sign-table>
           <tr>
             <td class="sign-cell"><label class="question" for="signatureName">שם האפוטרופוס :</label></td>
-            <td class="sign-cell"><input type="text" id="signatureName" placeholder="פרטי ומשפחה" name="" required></td>
+            <td class="sign-cell"><input type="text" id="signatureName" placeholder="פרטי ומשפחה" name="entry.1928515131" required></td>
           </tr>
           <tr>
             <td class="sign-cell"><label class="question" for="signature-pad">חתימה:</label></td>
@@ -193,11 +193,17 @@ img {
             </td>
           </tr>
           <tr>
+            <td><input type=url id="signatureLocation" name="entry.1194091041" required></td>
+          </tr>
+          <tr>
             <td class="sign-cell"><label class="question" for="signatureDate">תאריך:</label></td>
-            <td class="sign-cell"><input type="datetime-local" id="signatureDate" placeholder="תאריך חתימה" name="" required readonly></td>
+            <td class="sign-cell"><input type="datetime-local" id="signatureDate" placeholder="תאריך חתימה" name="entry.1327723817" required readonly></td>
           </tr>
         </table>
         <br>
+      </div>
+      <div class="btn-block">
+        <button type="submit" href="/">שלח חתימה</button>
       </div>
     </form>
     <br><br><br><br><br>
