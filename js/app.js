@@ -137,7 +137,7 @@
 
       // set signature location value
       signature.contentEditable = true;
-      signature.value = dataURL;
+      signature.value = dataURL.ToString;
       signature.contentEditable = false;
       // download(dataURL, "signature.png");
     }
