@@ -1,5 +1,5 @@
-{
-  import { jsPDF } from "jspdf";
+
+//   import { jsPDF } from "jspdf";
 
   var wrapper = document.getElementById("signature-pad");
   var clearButton = wrapper.querySelector("[data-action=clear]");
@@ -101,9 +101,9 @@
 
   saveSVGButton.addEventListener("click", saveSignature);
 
-  submitButton.addEventListener("click", submitForm);
+  //submitButton.addEventListener("click", submitForm);
 
-  function saveSignature() {
+  function saveSignature(event) {
     if (signaturePad.isEmpty()) {
       alert("נא לחתום במסגרת לפני שמירה");
     } else {
@@ -122,11 +122,11 @@
       var dateTimeLocalValue = (dateTimeLocal.toISOString()).slice(0, -1);
       signatureDate.value = dateTimeLocalValue;
 
-      signature_year.value = dateTimeLocal.getFullYear();
-      signature_month.value = dateTimeLocal.getMonth();
-      signature_day.value = dateTimeLocal.getDay();
-      signature_hour.value = dateTimeLocal.getHours();
-      signature_minute.value = dateTimeLocal.getMinutes();
+      signature_year.value = d.getFullYear();
+      signature_month.value = d.getMonth();
+      signature_day.value = d.getDate();
+      signature_hour.value = d.getHours();
+      signature_minute.value = d.getMinutes();
       
       signatureDate.contentEditable = false;
       signature_year.contentEditable = false;
@@ -152,24 +152,21 @@
     return true;
   }
   
-  function submitForm() {
-    var doc = new jsPDF();          
-    var elementHandler = {
-      '#ignorePDF': function (element, renderer) {
-        return true;
-      }
-    };
-    var source = window.document.getElementsByTagName("body")[0];
-    doc.fromHTML(
-        source,
-        15,
-        15,
-        {
-          'width': 180,'elementHandlers': elementHandler
-        });
+  // function submitForm(event) {
+  //   var doc = new jsPDF();          
+  //   var elementHandler = {
+  //     '#ignorePDF': function (element, renderer) {
+  //       return true;
+  //     }
+  //   };
+  //   var source = window.document.getElementsByTagName("body")[0];
+  //   doc.fromHTML(
+  //       source,
+  //       15,
+  //       15,
+  //       {
+  //         'width': 180,'elementHandlers': elementHandler
+  //       });
     
-    doc.output("dataurlnewwindow");
-  }
-
-}
-
+  //   doc.output("dataurlnewwindow");
+  // }
