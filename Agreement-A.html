@@ -127,7 +127,7 @@ img {
 </head>
 <body onselectstart="return false">
   <div dir="rtl" class="main-block">
-    <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdEIGXDwwYIJcD9fXgWe_SKqiNAm-TMO_OqLHQXMxf00OjqSw/formResponse">
+    <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdEIGXDwwYIJcD9fXgWe_SKqiNAm-TMO_OqLHQXMxf00OjqSw/formResponse" onsubmit="return validateForm()">
       <div class="Pages">
         <h1 style="text-align: center">טופס הסכמה מדעת - אפוטרופוס</h1>
       </div>
@@ -185,7 +185,7 @@ img {
                   <div class="signature-pad--actions">
                     <div>
                       <button type="button" class="button clear" data-action="clear">מחיקה</button>
-                      <button type="button" class="button save" data-action="save-png">שמירה</button>
+                      <button type="button" class="button save" data-action="save-svg">שמירה</button>
                     </div>
                   </div>
                 </div>
@@ -193,22 +193,29 @@ img {
             </td>
           </tr>
           <tr>
-            <td><input type=url id="signatureLocation" name="entry.1194091041" required></td>
+            <td><input type=text id="signature" name="entry.1194091041" required></td>
           </tr>
           <tr>
             <td class="sign-cell"><label class="question" for="signatureDate">תאריך:</label></td>
             <td class="sign-cell"><input type="datetime-local" id="signatureDate" placeholder="תאריך חתימה" name="entry.1327723817" required readonly></td>
+            <td class="sign-cell"><input type="number" id="signature_year" name="entry.1327723817_year" required readonly></td>
+            <td class="sign-cell"><input type="number" id="signature_month" name="entry.1327723817_month" required readonly></td>
+            <td class="sign-cell"><input type="number" id="signature_day" name="entry.1327723817_day" required readonly></td>
+            <td class="sign-cell"><input type="number" id="signature_hour" name="entry.235653991_hour" required readonly></td>
+            <td class="sign-cell"><input type="number" id="signature_minute" name="entry.235653991_minute" required readonly></td>
+
           </tr>
         </table>
         <br>
       </div>
       <div class="btn-block">
-        <button type="submit" href="/">שלח חתימה</button>
+        <button type="submit" id="submitButton" href="/">שלח חתימה</button>
       </div>
     </form>
     <br><br><br><br><br>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
