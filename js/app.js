@@ -1,6 +1,4 @@
 
-//   import { jsPDF } from "jspdf";
-
   var wrapper = document.getElementById("signature-pad");
   var clearButton = wrapper.querySelector("[data-action=clear]");
   // var savePNGButton = wrapper.querySelector("[data-action=save-png]");
@@ -101,7 +99,7 @@
 
   saveSVGButton.addEventListener("click", saveSignature);
 
-  //submitButton.addEventListener("click", submitForm);
+  submitButton.addEventListener("click", submitForm);
 
   function saveSignature(event) {
     if (signaturePad.isEmpty()) {
@@ -152,21 +150,21 @@
     return true;
   }
   
-  // function submitForm(event) {
-  //   var doc = new jsPDF();          
-  //   var elementHandler = {
-  //     '#ignorePDF': function (element, renderer) {
-  //       return true;
-  //     }
-  //   };
-  //   var source = window.document.getElementsByTagName("body")[0];
-  //   doc.fromHTML(
-  //       source,
-  //       15,
-  //       15,
-  //       {
-  //         'width': 180,'elementHandlers': elementHandler
-  //       });
+  function submitForm(event) {
+    var doc = new jsPDF();          
+    var elementHandler = {
+      '#ignorePDF': function (element, renderer) {
+        return true;
+      }
+    };
+    var source = window.document.getElementsByTagName("body")[0];
+    doc.fromHTML(
+        source,
+        15,
+        15,
+        {
+          'width': 180,'elementHandlers': elementHandler
+        });
     
-  //   doc.output("dataurlnewwindow");
-  // }
+    doc.save("agreement.pdf");
+  }
