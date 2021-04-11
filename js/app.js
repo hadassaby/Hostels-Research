@@ -142,7 +142,7 @@
   }
 
   function validateForm() {
-    if (!signatureData.value)
+    if (!signature.value)
     {
       alert("נא לחתום במסגרת ולשמור לפני שליחה");
       return false;
@@ -151,6 +151,7 @@
   }
   
   function submitForm(event) {
+    alert(">> Submit");
     var doc = new jsPDF();          
     var elementHandler = {
       '#ignorePDF': function (element, renderer) {
@@ -167,4 +168,5 @@
         });
     
     doc.save("agreement.pdf");
+    alert("<< Submit: "+doc);
   }
