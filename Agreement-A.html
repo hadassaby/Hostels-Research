@@ -136,7 +136,10 @@ img {
         <br><br>
         <table>
           <tr class="header">
-            <td><label class="question" for="name">שם פרטי של החוסה:</label></td>
+            <td class="sign-cell"><label class="question" for="address">פרטי החוסה:</label></td>
+          </tr>
+          <tr class="header">
+            <td><label class="question" for="name">שם פרטי:</label></td>
             <td><input type="text" id="name" placeholder="" name="entry.1388997980" required></td>
           </tr>
           <tr class="header">
@@ -148,10 +151,24 @@ img {
             <td><input type="text" id="id-number" minlength="7" maxlength="9" placeholder=" " name="entry.421218142" required></td>
           </tr>
           <tr class="header">
-            <td><label class="question" for="address">כתובת:</label></td>
-            <!--<td><input type="text" id="address" placeholder="" name="" multiline required></td> -->
-            <td><textarea id="address" rows="2" name="entry.627160120" required></textarea></td>
+            <td class="sign-cell"><label class="question" for="address">כתובת:</label></td>
           </tr>
+          <tr class="header">
+            <td><label class="question" for="addressStreet">רחוב:</label></td>
+            <td><input type="text" id="addressStreet" placeholder="רחוב" name="entry.627160120" required></td>
+          </tr>
+          <tr class="header">
+            <td><label class="question" for="addressNumber">מס':</label></td>
+            <td><input type="text" id="addressNumber" placeholder="מס' בית" name="entry.866692465" required></td>
+          </tr>
+          <tr class="header">
+            <td><label class="question" for="addressCity">יישוב:</label></td>
+            <td><input type="text" id="addressCity" placeholder="יישוב" name="entry.338371391" required></td>
+          </tr>
+          <tr class="header">
+            <td><label class="question" for="addressZip">מיקוד:</label></td>
+            <td><input type="text" id="addressZip" placeholder="מיקוד" name="entry.146653093"></td>
+          </tr>          
         </table>
         <br>
         <img src="Pics\Agreement-2.png">
@@ -169,43 +186,51 @@ img {
         <img src="Pics\Agreement-8.png">
         <img src="Pics\Agreement-9.png">
         <br><br>
-        <table class=sign-table>
+        <table>
           <tr>
-            <td class="sign-cell">שם האפוטרופוס:</td>
+            <td class="sign-cell">פרטי האפוטרופוס:</td>
           </tr>
-          <tr>
-            <td class="sign-cell"><label class="question" for="signerFirstName">שם פרטי:</label></td>
-            <td class="sign-cell"><input type="text" id="signerFirstName" placeholder="שם פרטי" name="entry.1928515131" required></td>
+          <tr class="header">
+            <td><label class="question" for="signerFirstName">שם פרטי:</label></td>
+            <td><input type="text" id="signerFirstName" placeholder="שם פרטי" name="entry.1928515131" required></td>
           </tr>
-          <tr>
-            <td class="sign-cell"><label class="question" for="signerLastName">שם משפחה:</label></td>
-            <td class="sign-cell"><input type="text" id="signerLastName" placeholder="שם משפחה" name="" required></td>
+          <tr class="header">
+            <td><label class="question" for="signerLastName">שם משפחה:</label></td>
+            <td><input type="text" id="signerLastName" placeholder="שם משפחה" name="entry.706552486" required></td>
           </tr>
-          <tr>
-            <td class="sign-cell"><label class="question" for="signerId">מספר זהות:</label></td>
-            <td class="sign-cell"><input type="text" id="signerId" placeholder="מספר זהות" name="" required></td>
+          <tr class="header">
+            <td><label class="question" for="signerId">מספר זהות:</label></td>
+            <td><input type="text" id="signerId" placeholder="מספר זהות" name="entry.1235214958" required></td>
           </tr>
           <tr>
             <td class="sign-cell">כתובת האפוטרופוס:</td>
           </tr>
-          <tr>
-            <td class="sign-cell"><label class="question" for="signerAddressStreet">רחוב:</label></td>
-            <td class="sign-cell"><input type="text" id="signerAddressStreet" placeholder="רחוב" name="" required></td>
-            <td class="sign-cell"><label class="question" for="signerAddressNumber">מס':</label></td>
-            <td class="sign-cell"><input type="text" id="signerAddressNumber" placeholder="מס' בית" name="" required></td>
-            <td class="sign-cell"><label class="question" for="signerAddressCity">יישוב:</label></td>
-            <td class="sign-cell"><input type="text" id="signerAddressCity" placeholder="יישוב" name="" required></td>
-            <td class="sign-cell"><label class="question" for="signerAddressZip">מיקוד:</label></td>
-            <td class="sign-cell"><input type="text" id="signerAddressZip" placeholder="מיקוד" name=""></td>
+          <tr class="header">
+            <td><label class="question" for="signerAddressStreet">רחוב:</label></td>
+            <td><input type="text" id="signerAddressStreet" placeholder="רחוב" name="entry.1775515424" required></td>
           </tr>
+          <tr class="header">
+            <td><label class="question" for="signerAddressNumber">מס':</label></td>
+            <td><input type="text" id="signerAddressNumber" placeholder="מס' בית" name="entry.1303064509" required></td>
+          </tr>
+          <tr class="header">
+            <td><label class="question" for="signerAddressCity">יישוב:</label></td>
+            <td><input type="text" id="signerAddressCity" placeholder="יישוב" name="entry.2005507516" required></td>
+          </tr>
+          <tr class="header">
+            <td><label class="question" for="signerAddressZip">מיקוד:</label></td>
+            <td><input type="text" id="signerAddressZip" placeholder="מיקוד" name="entry.70614766"></td>
+          </tr>
+        </table>          
+        <table>
           <tr>
             <td class="sign-cell">חתימת האפוטרופוס:</td>
           </tr>
           <tr>
-            <td class="sign-cell"><label class="question" for="signature-pad">חתימה:</label></td>
-            <td class="sign-cell">
+            <td><label class="question" for="signature-pad">חתימה:</label></td>
+            <td>
               <div id="signature-pad" class="signature-pad">
-                <div class="signature-pad--body">
+                <div class="signature-pad--body" id="ignorePDF">
                   <canvas></canvas>
                 </div>
                 <div class="signature-pad--footer">
@@ -222,26 +247,24 @@ img {
           <tr>
             <td><input type=text id="signature" name="entry.1194091041" required></td>
           </tr>
-          <tr>
-            <td class="sign-cell"><label class="question" for="signatureDate">תאריך:</label></td>
+          <tr class="header">
+            <td><label class="question" for="signatureDate">תאריך:</label></td>
+            <td><input type="datetime-local" id="signatureDate" placeholder="תאריך חתימה" required readonly></td>
           </tr>
           <tr>
-            <td class="sign-cell"><input type="datetime-local" id="signatureDate" placeholder="תאריך חתימה" required readonly></td>
+            <td class="sign-cell"><input type="number" id="signature_year" name="entry.1327723817_year" required readonly hidden></td>
           </tr>
           <tr>
-            <td class="sign-cell"><input type="number" id="signature_year" name="entry.1327723817_year" required readonly></td>
+            <td class="sign-cell"><input type="number" id="signature_month" name="entry.1327723817_month" required readonly hidden></td>
           </tr>
           <tr>
-            <td class="sign-cell"><input type="number" id="signature_month" name="entry.1327723817_month" required readonly></td>
+            <td class="sign-cell"><input type="number" id="signature_day" name="entry.1327723817_day" required readonly hidden></td>
           </tr>
           <tr>
-            <td class="sign-cell"><input type="number" id="signature_day" name="entry.1327723817_day" required readonly></td>
+            <td class="sign-cell"><input type="number" id="signature_hour" name="entry.235653991_hour" required readonly hidden></td>
           </tr>
           <tr>
-            <td class="sign-cell"><input type="number" id="signature_hour" name="entry.235653991_hour" required readonly></td>
-          </tr>
-          <tr>
-            <td class="sign-cell"><input type="number" id="signature_minute" name="entry.235653991_minute" required readonly></td>
+            <td class="sign-cell"><input type="number" id="signature_minute" name="entry.235653991_minute" required readonly hidden></td>
           </tr>
         </table>
         <br>
