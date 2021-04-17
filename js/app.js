@@ -144,29 +144,33 @@
   function validateForm() {
     if (!signature.value)
     {
-      alert("נא לחתום במסגרת ולשמור לפני שליחה");
-      return false;
+      saveSVGButton.click();
+
+      if (!signature.value)
+      {
+        return false;
+      }
     }
+
     return true;
   }
   
   function submitForm(event) {
     alert(">> Submit");
-    var doc = new jsPDF();          
-    var elementHandler = {
-      '#ignorePDF': function (element, renderer) {
-        return true;
-      }
-    };
+
     var source = window.document.getElementsByTagName("body")[0];
-    doc.fromHTML(
-        source,
-        15,
-        15,
-        {
-          'width': 180,'elementHandlers': elementHandler
-        });
+    var element = window.document.getElementsByTagName("body")[0]; //document.getElementById('element-to-print');
+    var opt = {
+      margin:       1,
+      filename:     'Signed-Agreement.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2 },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
     
-    doc.save("agreement.pdf");
-    alert("<< Submit: "+doc);
+    // New Promise-based usage:
+    html2pdf().set(opt).from(element).save();
+    
+    // doc.save("agreement.pdf");
+    alert("<< Submit: ");
   }
