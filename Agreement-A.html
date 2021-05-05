@@ -41,6 +41,24 @@ input {
   align-content: center;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea,
+fieldset {
+  width : 100%;
+  border: 1px solid #333;
+  box-sizing: border-box;
+}
+
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+input:focus:invalid {
+  box-shadow: none;
+}
+
 .resize_fit_center {
   max-width: 100%;
   max-height: 100%;
@@ -125,7 +143,7 @@ img {
 <head>
   <title>טופס הסכמה מדעת - אפוטרופוס</title>
 </head>
-<body onselectstart="return false">
+<body id="topdf">
   <div dir="rtl" class="main-block">
     <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdEIGXDwwYIJcD9fXgWe_SKqiNAm-TMO_OqLHQXMxf00OjqSw/formResponse" onsubmit="return validateForm()">
       <div class="Pages">
@@ -186,7 +204,7 @@ img {
         <img src="Pics\Agreement-8.png">
         <img src="Pics\Agreement-9.png">
         <br><br>
-        <table>
+        <table id="table1">
           <tr>
             <td class="sign-cell">פרטי האפוטרופוס:</td>
           </tr>
@@ -230,7 +248,7 @@ img {
             <td><label class="question" for="signature-pad">חתימה:</label></td>
             <td>
               <div id="signature-pad" class="signature-pad">
-                <div class="signature-pad--body" id="ignorePDF">
+                <div class="signature-pad--body">
                   <canvas></canvas>
                 </div>
                 <div class="signature-pad--footer">
@@ -266,6 +284,12 @@ img {
           <tr>
             <td class="sign-cell"><input type="number" id="signature_minute" name="entry.235653991_minute" required readonly hidden></td>
           </tr>
+          <tr>
+            <td><label class=question" for="signerEmail">כתובת מייל: 
+              למשלוח עותק כתב ההסכמה מדעת
+              </label></td>
+            <td><input type="email" id="signerEmail" placeholder="כתובת מייל" name="entry.1474886563" required></td>
+          </tr>
         </table>
         <br>
       </div>
@@ -275,9 +299,12 @@ img {
     </form>
     <br><br><br><br><br>
   </div>
-  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
-  <script src="js/html2pdf.bundle.min.js"></script>
+  <!--<script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.2.8/es6-promise.auto.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

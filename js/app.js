@@ -141,12 +141,26 @@
     }
   }
 
+  function convertToPdf(elementId)
+  {
+    var element = window.document.getElementById(elementId); //.getElementsByTagName("body")[0]; //document.getElementById('element-to-print');
+    var opt = {
+      margin:       1,
+      filename:     'Signed-Agreement.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2 },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    
+    html2pdf().set(opt).from(element).save();
+  }
+
   function validateForm() {
-    if (!signature.value)
+    if (!signature_day.value)
     {
       saveSVGButton.click();
 
-      if (!signature.value)
+      if (!signature_day.value)
       {
         return false;
       }
@@ -156,21 +170,10 @@
   }
   
   function submitForm(event) {
-    alert(">> Submit");
+    if (!validateForm())
+    {
+      return;
+    } 
 
-    var source = window.document.getElementsByTagName("body")[0];
-    var element = window.document.getElementsByTagName("body")[0]; //document.getElementById('element-to-print');
-    var opt = {
-      margin:       1,
-      filename:     'Signed-Agreement.pdf',
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 2 },
-      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-    
-    // New Promise-based usage:
-    html2pdf().set(opt).from(element).save();
-    
-    // doc.save("agreement.pdf");
-    alert("<< Submit: ");
+    convertToPdf('topdf');
   }
