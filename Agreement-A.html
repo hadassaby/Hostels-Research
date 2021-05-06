@@ -10,7 +10,7 @@
 body {
   background-color: white;
   min-height: 100%;
-  display: flex;
+  display: inline-flex;
   font-family: david, serif, "times new roman";
   font-size: 20px;
   font-style: normal;
@@ -262,33 +262,32 @@ img {
               </div>
             </td>
           </tr>
-          <tr>
-            <td><input type=text id="signature" name="entry.1194091041" required></td>
+          <tr hidden>
+            <td><input type=text id="signature" name="entry.1194091041" required hidden></td>
           </tr>
           <tr class="header">
             <td><label class="question" for="signatureDate">תאריך:</label></td>
             <td><input type="datetime-local" id="signatureDate" placeholder="תאריך חתימה" required readonly></td>
           </tr>
           <tr>
-            <td class="sign-cell"><input type="number" id="signature_year" name="entry.1327723817_year" required readonly hidden></td>
-          </tr>
-          <tr>
-            <td class="sign-cell"><input type="number" id="signature_month" name="entry.1327723817_month" required readonly hidden></td>
-          </tr>
-          <tr>
-            <td class="sign-cell"><input type="number" id="signature_day" name="entry.1327723817_day" required readonly hidden></td>
-          </tr>
-          <tr>
-            <td class="sign-cell"><input type="number" id="signature_hour" name="entry.235653991_hour" required readonly hidden></td>
-          </tr>
-          <tr>
-            <td class="sign-cell"><input type="number" id="signature_minute" name="entry.235653991_minute" required readonly hidden></td>
-          </tr>
-          <tr>
-            <td><label class=question" for="signerEmail">כתובת מייל: 
-              למשלוח עותק כתב ההסכמה מדעת
+            <td><label class=question" for="signerEmail">כתובת מייל:<br>              למשלוח עותק כתב ההסכמה מדעת
               </label></td>
             <td><input type="email" id="signerEmail" placeholder="כתובת מייל" name="entry.1474886563" required></td>
+          </tr>
+          <tr hidden>
+            <td class="sign-cell"><input type="number" id="signature_year" name="entry.1327723817_year" required readonly hidden></td>
+          </tr>
+          <tr hidden>
+            <td class="sign-cell"><input type="number" id="signature_month" name="entry.1327723817_month" required readonly hidden></td>
+          </tr>
+          <tr hidden>
+            <td class="sign-cell"><input type="number" id="signature_day" name="entry.1327723817_day" required readonly hidden></td>
+          </tr>
+          <tr hidden>
+            <td class="sign-cell"><input type="number" id="signature_hour" name="entry.235653991_hour" required readonly hidden></td>
+          </tr>
+          <tr hidden>
+            <td class="sign-cell"><input type="number" id="signature_minute" name="entry.235653991_minute" required readonly hidden></td>
           </tr>
         </table>
         <br>
