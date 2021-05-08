@@ -110,14 +110,20 @@
       // update signature date value and make it readonly
       setSignatureDate();
 
-      var zippedSignature = "data:application/zip;base64," + zipSignatureData(dataURL);
+      zipSignatureData(dataURL).then(function (base64) {
+        var zippedSignature = "data:application/zip;base64," + base64;
 
-      alert("Signature data: " + dataURL + "\n Zipped Signature: " + zippedSignature);
+        // set signature location value
+        signature.contentEditable = true;
+        signature.value = zippedSignature;
+        signature.contentEditable = false;
 
+      });
+      
       // set signature location value
-      signature.contentEditable = true;
-      signature.value = zippedSignature;
-      signature.contentEditable = false;
+      //signature.contentEditable = true;
+      //signature.value = zippedSignature;
+      //signature.contentEditable = false;
       // download(dataURL, "signature.png");
     }
   }
