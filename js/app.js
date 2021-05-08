@@ -110,7 +110,7 @@
       // update signature date value and make it readonly
       setSignatureDate();
 
-      zipSignatureData(dataURL).then(function (base64) {
+      zipSignatureDataAsync(dataURL).then(function (base64) {
         var zippedSignature = "data:application/zip;base64," + base64;
 
         // set signature location value

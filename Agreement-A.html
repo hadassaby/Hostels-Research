@@ -10,7 +10,7 @@
 body {
   background-color: white;
   min-height: 50%;
-  display: inline;
+  display: inline-block;
   font-family: david, serif, "times new roman";
   font-size: 20px;
   font-style: normal;
@@ -18,7 +18,7 @@ body {
 
 table {
   color: black;
-  display: flex;
+  display: inline-block;
   text-align: right;
   border-collapse: collapse;
   margin-right: 10%;
@@ -145,7 +145,7 @@ img {
 </head>
 <body id="topdf">
   <div dir="rtl" class="main-block">
-    <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdEIGXDwwYIJcD9fXgWe_SKqiNAm-TMO_OqLHQXMxf00OjqSw/formResponse" onsubmit="return validateForm()">
+    <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdEIGXDwwYIJcD9fXgWe_SKqiNAm-TMO_OqLHQXMxf00OjqSw/formResponse">
       <div class="Pages">
         <h1 style="text-align: center">טופס הסכמה מדעת - אפוטרופוס</h1>
       </div>
@@ -218,7 +218,8 @@ img {
           </tr>
           <tr class="header">
             <td><label class="question" for="signerId">מספר זהות:</label></td>
-            <td><input type="text" id="signerId" placeholder="מספר זהות" name="entry.1235214958" required></td>
+            <!-- <td><input type="text" id="signerId" placeholder="מספר זהות" name="entry.1235214958" required></td> -->
+            <td><input type="text" id="id-number" minlength="7" maxlength="9" placeholder=" " name="entry.1235214958" required></td>
           </tr>
           <tr>
             <td class="sign-cell">כתובת האפוטרופוס:</td>
@@ -293,7 +294,7 @@ img {
         <br>
       </div>
       <div class="btn-block">
-        <button type="submit" id="submitButton" href="/">שלח חתימה</button>
+        <button type="submit" id="submitButton" href="/">שלח מסמך חתום</button>
       </div>
     </form>
     <br><br><br><br><br>
