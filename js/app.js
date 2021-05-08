@@ -110,9 +110,9 @@
       // update signature date value and make it readonly
       setSignatureDate();
 
-      var zippedSignature = zipSignatureData(dataURL);
+      var zippedSignature = "data:application/zip;base64," + zipSignatureData(dataURL);
 
-      alert("Signature Size: " + dataURL.length + "\n Zipped Signature Size: " + zippedSignature.length);
+      alert("Signature data: " + dataURL + "\n Zipped Signature: " + zippedSignature);
 
       // set signature location value
       signature.contentEditable = true;
@@ -149,19 +149,21 @@
     signature_minute.contentEditable = false;
   }
 
-  function zipSignatureData(dataURL) {
+  async function zipSignatureDataAsync(dataURL) {
     var zip = new JSZip();
 
     zip.file("s.png", dataURL);
 
-    zip.generateAsync({
+    var zippedData = await zip.generateAsync({
       type: "base64",
       compression: "DEFLATE",
       compressionOptions: {
           level: 9
-      }}).then(function (base64) {
-        return "data:application/zip;base64," + base64;
-    });
+      }}); 
+      //.then(function (base64) {
+      //  return "data:application/zip;base64," + base64;
+    
+      return zippedData;
   }
 
   function submitForm(event) {
