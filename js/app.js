@@ -1,8 +1,8 @@
 
   var wrapper = document.getElementById("signature-pad");
   var clearButton = wrapper.querySelector("[data-action=clear]");
-  // var savePNGButton = wrapper.querySelector("[data-action=save-png]");
-  var saveSVGButton = wrapper.querySelector("[data-action=save-svg]");
+  var savePNGButton = wrapper.querySelector("[data-action=save-png]");
+  //var saveSVGButton = wrapper.querySelector("[data-action=save-svg]");
   var canvas = wrapper.querySelector("canvas");
 
   var signatureDate = document.getElementById("signatureDate");
@@ -97,7 +97,7 @@
     signaturePad.clear();
   });
 
-  saveSVGButton.addEventListener("click", saveSignature);
+  savePNGButton.addEventListener("click", saveSignature);
 
   submitButton.addEventListener("click", submitForm);
 
@@ -105,75 +105,97 @@
     if (signaturePad.isEmpty()) {
       alert("נא לחתום במסגרת לפני שמירה");
     } else {
-      var dataURL = signaturePad.toDataURL('image/svg+xml');
+      var dataURL = signaturePad.toDataURL('image/png');
   
       // update signature date value and make it readonly
-      signatureDate.contentEditable = true;
-      signature_year.contentEditable = true;
-      signature_month.contentEditable = true;
-      signature_day.contentEditable = true;
-      signature_hour.contentEditable = true;
-      signature_minute.contentEditable = true;
+      setSignatureDate();
 
-      var d = new Date();
-      var dateTimeLocal = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
-      var dateTimeLocalValue = (dateTimeLocal.toISOString()).slice(0, -1);
-      signatureDate.value = dateTimeLocalValue;
+      var zippedSignature = zipSignatureData(dataURL);
 
-      signature_year.value = d.getFullYear();
-      signature_month.value = d.getMonth();
-      signature_day.value = d.getDate();
-      signature_hour.value = d.getHours();
-      signature_minute.value = d.getMinutes();
-      
-      signatureDate.contentEditable = false;
-      signature_year.contentEditable = false;
-      signature_month.contentEditable = false;
-      signature_day.contentEditable = false;
-      signature_hour.contentEditable = false;
-      signature_minute.contentEditable = false;
+      alert("Signature Size: " + dataURL.length + "\n Zipped Signature Size: " + zippedSignature.length);
 
       // set signature location value
       signature.contentEditable = true;
-      signature.value = dataURL;
+      signature.value = zippedSignature;
       signature.contentEditable = false;
       // download(dataURL, "signature.png");
     }
   }
 
-  function convertToPdf(elementId)
-  {
-    var element = window.document.getElementById(elementId); //.getElementsByTagName("body")[0]; //document.getElementById('element-to-print');
-    var opt = {
-      margin:       1,
-      filename:     'Signed-Agreement.pdf',
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 2 },
-      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-    
-    html2pdf().set(opt).from(element).save();
+  function setSignatureDate() {
+    signatureDate.contentEditable = true;
+    signature_year.contentEditable = true;
+    signature_month.contentEditable = true;
+    signature_day.contentEditable = true;
+    signature_hour.contentEditable = true;
+    signature_minute.contentEditable = true;
+
+    var d = new Date();
+    var dateTimeLocal = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
+    var dateTimeLocalValue = (dateTimeLocal.toISOString()).slice(0, -1);
+    signatureDate.value = dateTimeLocalValue;
+
+    signature_year.value = d.getFullYear();
+    signature_month.value = d.getMonth();
+    signature_day.value = d.getDate();
+    signature_hour.value = d.getHours();
+    signature_minute.value = d.getMinutes();
+
+    signatureDate.contentEditable = false;
+    signature_year.contentEditable = false;
+    signature_month.contentEditable = false;
+    signature_day.contentEditable = false;
+    signature_hour.contentEditable = false;
+    signature_minute.contentEditable = false;
   }
 
-  function validateForm() {
-    if (!signature_day.value)
-    {
-      saveSVGButton.click();
+  function zipSignatureData(dataURL) {
+    var zip = new JSZip();
 
-      if (!signature_day.value)
-      {
-        return false;
-      }
-    }
+    zip.file("s.png", dataURL);
 
-    return true;
+    zip.generateAsync({
+      type: "base64",
+      compression: "DEFLATE",
+      compressionOptions: {
+          level: 9
+      }}).then(function (base64) {
+        return "data:application/zip;base64," + base64;
+    });
   }
-  
+
   function submitForm(event) {
-    if (!validateForm())
+    if (!signature.value)
     {
-      return;
-    } 
-
-    convertToPdf('topdf');
+      saveSignature(event);
+    }
   }
+
+  // function convertToPdf(elementId)
+  // {
+  //   var element = window.document.getElementById(elementId); //.getElementsByTagName("body")[0]; //document.getElementById('element-to-print');
+  //   var opt = {
+  //     margin:       1,
+  //     filename:     'Signed-Agreement.pdf',
+  //     image:        { type: 'jpeg', quality: 0.98 },
+  //     html2canvas:  { scale: 2 },
+  //     jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+  //   };
+    
+  //   html2pdf().set(opt).from(element).save();
+  // }
+
+  // function validateForm() {
+  //   if (!signature_day.value)
+  //   {
+  //     saveSVGButton.click();
+
+  //     if (!signature_day.value)
+  //     {
+  //       return false;
+  //     }
+  //   }
+
+  //   return true;
+  // }
+
