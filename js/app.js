@@ -5,7 +5,7 @@
   var canvas = wrapper.querySelector("canvas");
 
   var signatureDate = document.getElementById("signatureDate");
-  var signatureName = document.getElementById("signatureName");
+  //var signatureName = document.getElementById("signatureName");
   var signature = document.getElementById("signature");
 
   var signature_year = document.getElementById("signature_year");
@@ -20,8 +20,12 @@
 
   var submitSignature = document.getElementById("submitSignature");
   var submitButton = document.getElementById("submitButton");
+  var idNumberField = document.getElementById("id-number");
 
   var signaturePad = new SignaturePad(canvas);
+
+  saveSVGButton.addEventListener("click", saveSignature);
+  submitSignature.addEventListener("click", submitForm);
 
 //var signaturePad = new SignaturePad(canvas, {
   // It's Necessary to use an opaque color when saving image as JPEG;
@@ -101,27 +105,31 @@
     signaturePad.clear();
   });
 
-  saveSVGButton.addEventListener("click", saveSignature);
-  //submitButton.addEventListener("click", submitButton);
-  submitSignature.addEventListener("click", submitForm);
-
-  async function saveSignature(event) {
+  async function saveSignature(event) 
+  {
     if (signaturePad.isEmpty()) {
-      alert("נא לחתום במסגרת לפני שמירה");
-    } else {
-      //var dataURL = signaturePad.toDataURL('image/png');
-      var dataURL = signaturePad.toDataURL("image/svg+xml"); // save image as SVG    
-  
+      alert("נא לחתום במסגרת לפני שליחת הטופס");
+    } 
+    else 
+    {
+      // convert signature image to SVG
+      var dataURL = signaturePad.toDataURL("image/svg+xml");
+      var blobSignature = dataURLToBlob(dataURL);
+
       // update signature date value and make it readonly
       setSignatureDate();
 
-      var zippedData = await zipSignatureDataAsync(dataURL);
+      var filename = idNumberField.value;
+
+      var zippedData = await zipSignatureDataAsync(blobSignature, filename);
       var zippedSignature = "data:application/zip;base64," + zippedData;
   
       // set signature location value
       signature.contentEditable = true;
       signature.value = zippedSignature;
       signature.contentEditable = false;
+
+      //setTimeout(submitButton.click, 2000);
 
       // zipSignatureDataAsync(dataURL).then(function (base64) {
       //   var zippedSignature = "data:application/zip;base64," + base64;
@@ -137,7 +145,8 @@
     }
   }
 
-  function setSignatureDate() {
+  function setSignatureDate() 
+  {
     signatureDate.contentEditable = true;
     signature_year.contentEditable = true;
     signature_month.contentEditable = true;
@@ -164,10 +173,12 @@
     signature_minute.contentEditable = false;
   }
 
-  async function zipSignatureDataAsync(dataURL) {
+  async function zipSignatureDataAsync(blobSignature, filename) 
+  {
     var zip = new JSZip();
-
-    zip.file("signature.svg", dataURL);
+    zip.filename = filename + ".zip";
+    
+    zip.file(filename + ".svg", blobSignature);
 
     var zippedData = await zip.generateAsync({
       type: "base64",
@@ -179,42 +190,10 @@
       return zippedData;
   }
  
-  function submitForm(event) {
+  function submitForm(event) 
+  {
     saveSVGButton.click();
 
-    setTimeout(
-      {
-         // do nothing... 
-      }, 2000);
-    
-    submitButton.click();  
+    submitButton.click();
   }
-
-  // function convertToPdf(elementId)
-  // {
-  //   var element = window.document.getElementById(elementId); //.getElementsByTagName("body")[0]; //document.getElementById('element-to-print');
-  //   var opt = {
-  //     margin:       1,
-  //     filename:     'Signed-Agreement.pdf',
-  //     image:        { type: 'jpeg', quality: 0.98 },
-  //     html2canvas:  { scale: 2 },
-  //     jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-  //   };
-    
-  //   html2pdf().set(opt).from(element).save();
-  // }
-
-  // function validateForm() {
-  //   if (!signature_day.value)
-  //   {
-  //     saveSVGButton.click();
-
-  //     if (!signature_day.value)
-  //     {
-  //       return false;
-  //     }
-  //   }
-
-  //   return true;
-  // }
 
