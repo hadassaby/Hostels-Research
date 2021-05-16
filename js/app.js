@@ -182,8 +182,12 @@
   function submitForm(event) {
     saveSVGButton.click();
 
-    setTimeout(submitButton.click(), 2000);
-  
+    setTimeout(
+      {
+         // do nothing... 
+      }, 2000);
+    
+    submitButton.click();  
   }
 
   // function convertToPdf(elementId)
