@@ -10,7 +10,7 @@
 body {
   background-color: white;
   min-height: 50%;
-  display: inline-block;
+  display: flex;
   font-family: david, serif, "times new roman";
   font-size: 20px;
   font-style: normal;
@@ -18,7 +18,7 @@ body {
 
 table {
   color: black;
-  display: inline-block;
+  display: flex;
   text-align: right;
   border-collapse: collapse;
   margin-right: 10%;
@@ -158,14 +158,14 @@ img {
           </tr>
           <tr class="header">
             <td><label class="question" for="name">שם פרטי:</label></td>
-            <td><input type="text" id="name" placeholder="" name="entry.1388997980" required></td>
+            <td><input type="text" id="name" placeholder="שם פרטי" name="entry.1388997980" required></td>
           </tr>
           <tr class="header">
             <td><label class="question" for="family">שם משפחה:</label></td>
-            <td><input type="text" id="family" placeholder="" name="entry.1265832045" required></td>
+            <td><input type="text" id="family" placeholder="שם משפחה" name="entry.1265832045" required></td>
           </tr>
           <tr class="header">
-            <td><label class="question" for="id-number">מס' תעודת זהות:</label></td>
+            <td><label class="question" for="id-number">מספר זהות:</label></td>
             <td><input type="text" id="id-number" minlength="7" maxlength="9" placeholder=" " name="entry.421218142" required></td>
           </tr>
           <tr class="header">
@@ -183,10 +183,6 @@ img {
             <td><label class="question" for="addressCity">יישוב:</label></td>
             <td><input type="text" id="addressCity" placeholder="יישוב" name="entry.338371391" required></td>
           </tr>
-          <tr class="header">
-            <td><label class="question" for="addressZip">מיקוד:</label></td>
-            <td><input type="text" id="addressZip" placeholder="מיקוד" name="entry.146653093"></td>
-          </tr>          
         </table>
         <br>
         <img src="Pics\Agreement-2.png">
@@ -236,10 +232,6 @@ img {
             <td><label class="question" for="signerAddressCity">יישוב:</label></td>
             <td><input type="text" id="signerAddressCity" placeholder="יישוב" name="entry.2005507516" required></td>
           </tr>
-          <tr class="header">
-            <td><label class="question" for="signerAddressZip">מיקוד:</label></td>
-            <td><input type="text" id="signerAddressZip" placeholder="מיקוד" name="entry.70614766"></td>
-          </tr>
         </table>          
         <table>
           <tr>
@@ -256,7 +248,7 @@ img {
                   <div class="signature-pad--actions">
                     <div>
                       <button type="button" class="button clear" data-action="clear">מחיקה</button>
-                      <button type="button" class="button save" data-action="save-png">שמירה</button>
+                      <button type="button" class="button save" data-action="save-svg" hidden>שמירה</button>
                     </div>
                   </div>
                 </div>
@@ -271,8 +263,7 @@ img {
             <td><input type="datetime-local" id="signatureDate" placeholder="תאריך חתימה" required readonly></td>
           </tr>
           <tr>
-            <td><label class=question" for="signerEmail">כתובת מייל:<br>              למשלוח עותק כתב ההסכמה מדעת
-              </label></td>
+            <td><label class="question" for="signerEmail">כתובת מייל:<br> - למשלוח עותק כתב ההסכמה מדעת - </label></td>
             <td><input type="email" id="signerEmail" placeholder="כתובת מייל" name="entry.1474886563" required></td>
           </tr>
           <tr hidden>
@@ -294,17 +285,13 @@ img {
         <br>
       </div>
       <div class="btn-block">
-        <button type="submit" id="submitButton" href="/">שלח מסמך חתום</button>
+        <button type="button" id="submitSignature" href="/">שלח/י מסמך חתום</button>
+        <button type="submit" id="submitButton" href="/" hidden></button>
       </div>
     </form>
     <br><br><br><br><br>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
-  <!--<script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>-->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.2.8/es6-promise.auto.min.js"></script>  -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.min.js"></script> -->
   <script src="js/jszip.min.js"></script>
   <script src="js/app.js"></script>
 </body>

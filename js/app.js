@@ -1,8 +1,7 @@
 
   var wrapper = document.getElementById("signature-pad");
   var clearButton = wrapper.querySelector("[data-action=clear]");
-  var savePNGButton = wrapper.querySelector("[data-action=save-png]");
-  //var saveSVGButton = wrapper.querySelector("[data-action=save-svg]");
+  var saveSVGButton = wrapper.querySelector("[data-action=save-svg]");
   var canvas = wrapper.querySelector("canvas");
 
   var signatureDate = document.getElementById("signatureDate");
@@ -15,6 +14,11 @@
   var signature_hour = document.getElementById("signature_hour");
   var signature_minute = document.getElementById("signature_minute");
 
+  var SVGZipLength = document.getElementById("SVGZipLength");
+
+  var SVGSign = document.getElementById("SVGSign");
+
+  var submitSignature = document.getElementById("submitSignature");
   var submitButton = document.getElementById("submitButton");
 
   var signaturePad = new SignaturePad(canvas);
@@ -97,34 +101,39 @@
     signaturePad.clear();
   });
 
-  savePNGButton.addEventListener("click", saveSignature);
+  saveSVGButton.addEventListener("click", saveSignature);
+  //submitButton.addEventListener("click", submitButton);
+  submitSignature.addEventListener("click", submitForm);
 
-  submitButton.addEventListener("click", submitForm);
-
-  function saveSignature(event) {
+  async function saveSignature(event) {
     if (signaturePad.isEmpty()) {
       alert("נא לחתום במסגרת לפני שמירה");
     } else {
-      var dataURL = signaturePad.toDataURL('image/png');
+      //var dataURL = signaturePad.toDataURL('image/png');
+      var dataURL = signaturePad.toDataURL("image/svg+xml"); // save image as SVG    
   
       // update signature date value and make it readonly
       setSignatureDate();
 
-      zipSignatureDataAsync(dataURL).then(function (base64) {
-        var zippedSignature = "data:application/zip;base64," + base64;
-
-        // set signature location value
-        signature.contentEditable = true;
-        signature.value = zippedSignature;
-        signature.contentEditable = false;
-
-      });
-      
+      var zippedData = await zipSignatureDataAsync(dataURL);
+      var zippedSignature = "data:application/zip;base64," + zippedData;
+  
       // set signature location value
-      //signature.contentEditable = true;
-      //signature.value = zippedSignature;
-      //signature.contentEditable = false;
-      // download(dataURL, "signature.png");
+      signature.contentEditable = true;
+      signature.value = zippedSignature;
+      signature.contentEditable = false;
+
+      // zipSignatureDataAsync(dataURL).then(function (base64) {
+      //   var zippedSignature = "data:application/zip;base64," + base64;
+  
+      //   // set signature location value
+      //   signature.contentEditable = true;
+      //   signature.value = zippedSignature;
+      //   signature.contentEditable = false;
+
+      //   // download(dataURL, "signature.png");
+      // });
+      
     }
   }
 
@@ -158,7 +167,7 @@
   async function zipSignatureDataAsync(dataURL) {
     var zip = new JSZip();
 
-    zip.file("s.png", dataURL);
+    zip.file("signature.svg", dataURL);
 
     var zippedData = await zip.generateAsync({
       type: "base64",
@@ -166,17 +175,15 @@
       compressionOptions: {
           level: 9
       }}); 
-      //.then(function (base64) {
-      //  return "data:application/zip;base64," + base64;
     
       return zippedData;
   }
-
+ 
   function submitForm(event) {
-    if (!signature.value)
-    {
-      saveSignature(event);
-    }
+    saveSVGButton.click();
+
+    setTimeout(submitButton.click(), 2000);
+  
   }
 
   // function convertToPdf(elementId)
