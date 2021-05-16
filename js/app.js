@@ -164,7 +164,7 @@
     signature_day.value = d.getDate();
     signature_hour.value = d.getHours();
     signature_minute.value = d.getMinutes();
-
+    signatureDate.hidden = false;
     signatureDate.contentEditable = false;
     signature_year.contentEditable = false;
     signature_month.contentEditable = false;

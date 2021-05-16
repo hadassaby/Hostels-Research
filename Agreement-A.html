@@ -2,7 +2,7 @@
 <html lang="he">
 <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+<meta name="viewport" content="width=device-width, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="stylesheet" href="css/Agreement-A.css" />
@@ -81,7 +81,6 @@
           </tr>
           <tr class="header">
             <td><label class="question" for="signerId">מספר זהות:</label></td>
-            <!-- <td><input type="text" id="signerId" placeholder="מספר זהות" name="entry.1235214958" required></td> -->
             <td><input type="text" id="id-number" minlength="7" maxlength="9" placeholder=" " name="entry.1235214958" required></td>
           </tr>
           <tr>
@@ -100,7 +99,7 @@
             <td><input type="text" id="signerAddressCity" placeholder="יישוב" name="entry.2005507516" required></td>
           </tr>
         </table>          
-        <table>
+        <table id="signerTable">
           <tr>
             <td class="sign-cell">חתימת האפוטרופוס:</td>
           </tr>
@@ -113,10 +112,10 @@
                 </div>
                 <div class="signature-pad--footer">
                   <div class="signature-pad--actions">
-                    <div>
-                      <button type="button" class="button clear" data-action="clear">מחיקה</button>
-                      <button type="button" class="button save" data-action="save-svg" hidden>שמירה</button>
+                    <div class="btn-block">
+                      <button type="button" class="button clear" id="clearButton" data-action="clear">מחיקה</button>
                     </div>
+                    <button type="button" class="button save" data-action="save-svg" hidden>שמירה</button>
                   </div>
                 </div>
               </div>
@@ -127,7 +126,7 @@
           </tr>
           <tr class="header">
             <td><label class="question" for="signatureDate">תאריך:</label></td>
-            <td><input type="datetime-local" id="signatureDate" placeholder="תאריך חתימה" required readonly></td>
+            <td><input type="datetime-local" id="signatureDate" placeholder="תאריך חתימה" required readonly hidden></td>
           </tr>
           <tr>
             <td><label class="question" for="signerEmail">כתובת מייל:<br> - למשלוח עותק כתב ההסכמה מדעת - </label></td>
@@ -153,8 +152,8 @@
       </div>
       <div class="btn-block">
         <button type="button" id="submitSignature" href="/">שלח/י מסמך חתום</button>
-        <button type="submit" id="submitButton" href="/" hidden></button>
       </div>
+      <button type="submit" id="submitButton" href="/" hidden></button>
     </form>
     <br><br><br><br><br>
   </div>
