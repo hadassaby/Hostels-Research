@@ -24,8 +24,11 @@
 
   var signaturePad = new SignaturePad(canvas);
 
+  var form = document.getElementById("AgreementForm");
+
   saveSVGButton.addEventListener("click", saveSignature);
-  submitSignature.addEventListener("click", submitForm);
+  submitSignature.addEventListener("click", submitData);
+  submitButton.addEventListener("click", submitForm)
 
 //var signaturePad = new SignaturePad(canvas, {
   // It's Necessary to use an opaque color when saving image as JPEG;
@@ -103,6 +106,8 @@
 
   clearButton.addEventListener("click", function (event) {
     signaturePad.clear();
+    signature.value = null;
+    signature.contentEditable = false;
   });
 
   async function saveSignature(event) 
@@ -164,7 +169,7 @@
     signature_day.value = d.getDate();
     signature_hour.value = d.getHours();
     signature_minute.value = d.getMinutes();
-    signatureDate.hidden = false;
+    signatureDate.style.display = 'block';
     signatureDate.contentEditable = false;
     signature_year.contentEditable = false;
     signature_month.contentEditable = false;
@@ -190,10 +195,41 @@
       return zippedData;
   }
  
-  function submitForm(event) 
+  async function submitData(event) 
   {
-    saveSVGButton.click();
+    await saveSVGButton.click();
 
-    submitButton.click();
+    if (form.checkValidity() == true) 
+    {
+      await submitButton.click();
+    }
+    else
+    {
+      form.submitButton.click();
+    }
   }
 
+  const tickMark = "<svg width=\"58\" height=\"45\" viewBox=\"0 0 58 45\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"#fff\" fill-rule=\"nonzero\" d=\"M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65\"/></svg>";
+  
+  async function submitForm(event)
+  {
+    if (form.checkValidity() == true) 
+    {
+      if (submitSignature.innerHTML === "שלח/י מסמך חתום") 
+      {
+        submitSignature.innerHTML = tickMark;
+      }
+      this.classList.toggle('button__circle');
+    }
+  }
+
+
+
+//button.addEventListener('click', function() {
+//  if (buttonText.innerHTML !== "Submit") {
+//    buttonText.innerHTML = "Submit";
+//  } else if (buttonText.innerHTML === "Submit") {
+//    buttonText.innerHTML = tickMark;
+//  }
+//  this.classList.toggle('button__circle');
+//});

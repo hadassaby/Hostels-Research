@@ -2,7 +2,7 @@
 <html lang="he">
 <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
-<meta name="viewport" content="width=device-width, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="stylesheet" href="css/Agreement-A.css" />
@@ -12,7 +12,7 @@
 </head>
 <body>
   <div dir="rtl" class="main-block">
-    <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdEIGXDwwYIJcD9fXgWe_SKqiNAm-TMO_OqLHQXMxf00OjqSw/formResponse">
+    <form id="AgreementForm" action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdEIGXDwwYIJcD9fXgWe_SKqiNAm-TMO_OqLHQXMxf00OjqSw/formResponse">
       <div class="Pages">
         <h1 style="text-align: center">טופס הסכמה מדעת - אפוטרופוס</h1>
       </div>
@@ -114,8 +114,8 @@
                   <div class="signature-pad--actions">
                     <div class="btn-block">
                       <button type="button" class="button clear" id="clearButton" data-action="clear">מחיקה</button>
+                      <button type="button" class="button save" data-action="save-svg" hidden>שמירה</button>
                     </div>
-                    <button type="button" class="button save" data-action="save-svg" hidden>שמירה</button>
                   </div>
                 </div>
               </div>
@@ -152,8 +152,8 @@
       </div>
       <div class="btn-block">
         <button type="button" id="submitSignature" href="/">שלח/י מסמך חתום</button>
+        <button type="submit" id="submitButton" href="/" hidden></button>
       </div>
-      <button type="submit" id="submitButton" href="/" hidden></button>
     </form>
     <br><br><br><br><br>
   </div>

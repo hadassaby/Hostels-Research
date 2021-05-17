@@ -140,11 +140,20 @@ img {
   margin-top: 8px;
 }
 
+.button:hover {
+  cursor: pointer;
+}
+
 .btn-block {
-  position: relative;
+  position: sticky;
   text-align: center;
   font-size: 28px;
   display: flex;
   justify-content: center;
   align-items: center;
+  
+}
+
+.btn-block::hidden {
+  display: none;
 }
