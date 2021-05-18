@@ -200,11 +200,14 @@
     submitSignature.disabled = true;
     saveSVGButton.click().then(function(result)
     {
-      await submitButton.click();
+      submitButton.click().then(function(result)
+      {
+        submitSignature.disabled = false;
+      });
     });
   }
 
-  async function submitForm(event)
+  function submitForm(event)
   {
     if (form.checkValidity() == true) 
     {
@@ -212,11 +215,6 @@
       {
         submitSignature.innerHTML = "המסמך נשלח";
       }
-      this.classList.toggle('button__circle');
-    }
-    else
-    {
-      submitSignature.disabled = false;
     }
   }
 
