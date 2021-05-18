@@ -165,7 +165,7 @@
     signatureDate.value = dateTimeLocalValue;
 
     signature_year.value = d.getFullYear();
-    signature_month.value = d.getMonth();
+    signature_month.value = d.getMonth() + 1;
     signature_day.value = d.getDate();
     signature_hour.value = d.getHours();
     signature_minute.value = d.getMinutes();
@@ -197,29 +197,26 @@
  
   async function submitData(event) 
   {
-    await saveSVGButton.click();
-
-    if (form.checkValidity() == true) 
+    submitSignature.disabled = true;
+    saveSVGButton.click().then(function(result)
     {
       await submitButton.click();
-    }
-    else
-    {
-      form.submitButton.click();
-    }
+    });
   }
 
-  const tickMark = "<svg width=\"58\" height=\"45\" viewBox=\"0 0 58 45\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"#fff\" fill-rule=\"nonzero\" d=\"M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65\"/></svg>";
-  
   async function submitForm(event)
   {
     if (form.checkValidity() == true) 
     {
       if (submitSignature.innerHTML === "שלח/י מסמך חתום") 
       {
-        submitSignature.innerHTML = tickMark;
+        submitSignature.innerHTML = "המסמך נשלח";
       }
       this.classList.toggle('button__circle');
+    }
+    else
+    {
+      submitSignature.disabled = false;
     }
   }
 
