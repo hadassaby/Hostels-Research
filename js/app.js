@@ -197,13 +197,9 @@
  
   async function submitData(event) 
   {
-    submitSignature.disabled = true;
     saveSVGButton.click().then(function(result)
     {
-      submitButton.click().then(function(result)
-      {
-        submitSignature.disabled = false;
-      });
+      submitButton.click();
     });
   }
 
