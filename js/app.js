@@ -1,7 +1,7 @@
 
   var wrapper = document.getElementById("signature-pad");
   var clearButton = wrapper.querySelector("[data-action=clear]");
-  var saveSVGButton = wrapper.querySelector("[data-action=save-svg]");
+  //var saveSVGButton = wrapper.querySelector("[data-action=save-svg]");
   var canvas = wrapper.querySelector("canvas");
 
   var signatureDate = document.getElementById("signatureDate");
@@ -26,7 +26,7 @@
 
   var form = document.getElementById("AgreementForm");
 
-  saveSVGButton.addEventListener("click", saveSignature);
+  //saveSVGButton.addEventListener("click", saveSignature);
   submitSignature.addEventListener("click", submitData);
   submitButton.addEventListener("click", submitForm)
 
@@ -110,7 +110,7 @@
     signature.contentEditable = false;
   });
 
-  async function saveSignature(event) 
+  async function saveSignature(submitCallback) 
   {
     if (signaturePad.isEmpty()) {
       alert("נא לחתום במסגרת לפני שליחת הטופס");
@@ -127,12 +127,17 @@
       var filename = idNumberField.value;
 
       var zippedData = await zipSignatureDataAsync(blobSignature, filename);
+      
+      await new Promise(resolve => setTimeout(resolve, 1000)); // wait 1 second
+
       var zippedSignature = "data:application/zip;base64," + zippedData;
   
       // set signature location value
       signature.contentEditable = true;
       signature.value = zippedSignature;
       signature.contentEditable = false;
+
+      submitCallback();
 
       //setTimeout(submitButton.click, 2000);
 
@@ -195,10 +200,10 @@
       return zippedData;
   }
  
-  async function submitData(event) 
+  
+  function submitData(event) 
   {
-    saveSVGButton.click().then(function(result)
-    {
+    saveSignature(() => {
       submitButton.click();
     });
   }
@@ -213,8 +218,6 @@
       }
     }
   }
-
-
 
 //button.addEventListener('click', function() {
 //  if (buttonText.innerHTML !== "Submit") {
