@@ -106,6 +106,13 @@
         font-weight: bold;
     }
 
+    .subQuestion {
+        position: relative;
+        align-content: center;
+        height: auto;
+        scale: 1.0;
+    }
+
     .question-answer label {
         display: inline-block;
         padding: 0 20px 15px 0;
@@ -196,11 +203,25 @@
                 <input type="date" name="entry.1781013980" required>
             </div>
             <div class="header">
-                <p class="question">מספר תעודת הזהות של משתתף המחקר:</p>
-                <input type="text" placeholder="ת.ז." name="entry.2054194911" required>
+                <p class="question">פרטי משתתף המחקר:</p>
+                <td class="subQuestion">שם פרטי:</td>
+                <input type="text" placeholder="שם פרטי" name="entry.704475689" required>
+                <td class="subQuestion">שם משפחה:</td>
+                <input type="text" placeholder="שם משפחה" name="entry.812110394" required>
+                <td class="subQuestion">מספר זהות:</td>
+                <input type="text" minlength="7" maxlength="9" placeholder=" " name="entry.2054194911" required>
             </div>
             <div class="header">
-                <p class="question">זהות מרואיין:</p>
+                <p class="question">מקום מגורים של משתתף המחקר:</p>
+                <div class="question-answer">
+                    <div><input type="radio" value="הוסטל מבשרת" name="entry.17868353"  required> הוסטל מבשרת</div>
+                    <div><input type="radio" value="הוסטל כרמיאל" name="entry.17868353"  required> הוסטל כרמיאל</div>
+                    <div><input type="radio" value="בית" name="entry.17868353" required> בית</div>
+                    <div><input type="radio" value="הוסטל אחר" name="entry.17868353" required> הוסטל אחר</div>
+                </div>
+            </div>
+            <div class="header">
+                <p class="question">זהות ממלא השאלון:</p>
                 <div class="question-answer">
                     <div><input type="radio" value="משתתף המחקר" name="entry.131281893" required> משתתף המחקר</div>
                     <div><input type="radio" value="הורה" name="entry.131281893" /> הורה</div>
@@ -208,6 +229,8 @@
                     <div><input type="radio" value="אפוטרופוס" name="entry.131281893" /> אפוטרופוס</div>
                     <div><input type="radio" value="אחר" name="entry.131281893" /> אחר</div>
                 </div>
+                <p class="question">שם פרטי ושם משפחה:</p>
+                <input type="text" placeholder="שם מלא" name="entry" required>
             </div>
             <div class="section">
                 <p class="question" >1 .כיצד היית מעריך/ה את מצב בריאותך באופן כללי?</p>
